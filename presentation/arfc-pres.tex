@@ -1,0 +1,265 @@
+%        File: arfc-beamer.tex
+%     Created: Sun May 5 10:00 PM 2013 C
+%
+
+
+%\documentclass[11pt,handout]{beamer}
+\documentclass[9pt]{beamer}
+\usetheme[white]{Illinois}
+%\title[short title]{long title}
+\title[LEU+ to HALEU Fuel Transitions]{LEU+ to HALEU transitions in advanced reactor fuel cycles}
+%\subtitle[short subtitle]{long subtitle}
+\subtitle[Short SubTitle]{ANS Great Lakes Local Section}
+%\author[short name]{long name}
+\author[Nathan Ryan]{Nathan Ryan\\Advanced Reactors and Fuel Cycles}
+%\date[short date]{long date}
+\date[01.30.2025]{January 30, 2025}
+%\institution[short name]{long name}
+\institute[UIUC]{University of Illinois Urbana-Champaign}
+
+%\usepackage{bbding}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{xspace}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{booktabs} % nice rules for tables
+\usepackage{microtype} % if using PDF
+\usepackage{bigints}
+
+\newcommand{\units}[1] {\:\text{#1}}%
+\newcommand{\SN}{S$_N$}%{S$_\text{N}$}%{$S_N$}%
+\DeclareMathOperator{\erf}{erf}
+%I need some complimentary error funcitons...
+\DeclareMathOperator{\erfc}{erfc}
+%Those icons in the references are terrible looking
+\setbeamertemplate{bibliography item}[text]
+
+%%%% Acronym support
+
+\usepackage[acronym,toc]{glossaries}
+\include{acros}
+
+\makeglossaries
+
+%try to get rid of header on title page\dots
+\makeatletter
+    \newenvironment{withoutheadline}{
+        \setbeamertemplate{headline}[default]
+        \def\beamer@entrycode{\vspace*{-\headheight}}
+    }{}
+\makeatother
+
+% \makeatother
+% \setbeamertemplate{footline}
+% {
+%   \leavevmode%
+%   \hbox{%
+%     \rightline{\insertframenumber{} / \inserttotalframenumber\hspace*{1ex}}
+%   }%
+%   \vskip0pt%
+% }
+% \makeatletter
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+\setbeamertemplate{page number in head/foot}[appendixframenumber]
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% From uw-beamer Here's a handy bit of code to place at
+%% the beginning of your presentation (after \begin{document}):
+\newcommand*{\alphabet}{ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz}
+\newlength{\highlightheight}
+\newlength{\highlightdepth}
+\newlength{\highlightmargin}
+\setlength{\highlightmargin}{2pt}
+\settoheight{\highlightheight}{\alphabet}
+\settodepth{\highlightdepth}{\alphabet}
+\addtolength{\highlightheight}{\highlightmargin}
+\addtolength{\highlightdepth}{\highlightmargin}
+\addtolength{\highlightheight}{\highlightdepth}
+\newcommand*{\Highlight}{\rlap{\textcolor{HighlightBackground}{\rule[-\highlightdepth]{\linewidth}{\highlightheight}}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%--------------------------------%%
+\begin{withoutheadline}
+\frame{
+  \titlepage
+}
+\end{withoutheadline}
+
+%%--------------------------------%%
+\AtBeginSection[]{
+\begin{frame}
+  \frametitle{Outline}
+  \tableofcontents[currentsection]
+\end{frame}
+}
+
+\section{Nuclear Fuel Cycle}
+  \begin{frame}
+      \frametitle{Generally, fuel cycles have these steps}
+      \begin{figure}[ht!]
+      \centering
+      \includegraphics[width=0.75\textwidth]{./images/nuclear_fuel_cycle.png}
+      \caption{Source: Penn State Univ. Radiation Science and Engineering Center (public domain)$^{*}$}
+      \end{figure}
+  \end{frame}
+
+  \begin{frame}
+      \frametitle{Not all fuel cycles are made equal, and we want options}
+      Concerns about economics, waste generation, proliferation risk, and sustainability motivate the need for fuel cycle options. With metrics like:
+        \begin{itemize}%[<+->]
+            \item natural resource utilization,
+            \item waste mass/volume,
+            \item special material quantities,
+            \item separative work units,
+            \item and energy production,
+        \end{itemize}
+        we can begin to evaluate the tradeoffs between fuel cycle options.
+  \end{frame}
+
+\section{Fuel Cycle Modeling}
+  \begin{frame}
+    \frametitle{Big questions in fuel cycle modeling}
+    Increased computational power and advanced reactors mean more detailed fuel cycle modeling.
+    \begin{itemize}
+        \item How can we make facility models more accurate?
+        \item How can we make transaction models more detailed?
+        \item Can we implement nuclear fuel cycle codes to identify realtime diversion or diversion paths?
+        \item When do advanced reactor technologies change key metrics we use to evaluate fuel cycles?
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{We use Cyclus to model fuel cycles}
+    \vspace{20pt}
+    Cyclus is an open-source agent-based fuel cycle code allowing for detailed facility and transaction modeling \cite{huff_fundamental_2016}.
+    \vspace{20pt}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.45\textwidth]{./images/cyclus_logo.png}
+    \end{figure}
+
+    \vspace{37pt}
+    Source: \url{https://github.com/cyclus/cyclus.github.com/blob/source/source/logos/logo2_transp.png}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Cyclus is being used to tackle big questions in fuel cycle modeling}
+    \begin{block}{Making facility models more accurate}
+        OpenMCyclus \cite{openmcyclus_paper} couples Cyclus with OpenMC to model realtime depletion.
+    \end{block}
+    \begin{block}{Making transaction models more detailed}
+        There is active work to incorporate realistic purchasing agreements and market models into Cyclus.
+    \end{block}
+    \begin{block}{Identifying realtime diversion or diversion paths}
+        CNTAUR \cite{mummah_advanced_2024} and Pyre \cite{westphal_modeling_2019} format outputs in IAEA code 10 format and model real time diversion, respectively.
+    \end{block}
+    \begin{block}{Finding advanced reactor impacts on the fuel cycle}
+        We will talk a little about that today!
+    \end{block}
+  \end{frame}
+
+  \section{LEU+ to HALEU}
+  \begin{frame}
+    \frametitle{A mildly provocative question}
+    \vspace{-25pt}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.98\textwidth]{./images/reactor_timeline.png}
+        \caption{Source: \url{inl.gov/nuclear-reactor-sustainment-and-expanded-deployment/}}
+    \end{figure}
+    \vspace{-8pt}
+    What if we can't get HALEU to fuel these advanced reactors?
+    Could we use LEU+ in the meantime?
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{We define the enrichment levels as...}
+    These are a mash-up of economic and regulatory definitions.
+    \begin{table}[H]
+        \centering
+        \caption{Enrichment levels and their ranges.}
+        \label{tab:enrichment_levels}
+        \begin{tabular}{c c}
+           \hline
+           \textbf{Enrichment Level} & \textbf{Range [\%  $^{235}$U]} \\
+           \hline
+           Natural & $<$ 0.711 \\
+           LEU & 0.711-5 \\
+           LEU+ & 5-10 \\
+           HALEU & 10-20 \\
+           HEU & $\geq$ 20  \\
+           \hline
+        \end{tabular}
+     \end{table}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Our demand for energy is going up}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.85\textwidth]{./images/new_capacity_ng_d2.pdf}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Staggering enrichment could give the supply chain time to develop}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.75\textwidth]{./images/fresh_fuel.pdf}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{The difference is on the order of hundreds of tons}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.75\textwidth]{./images/fresh_fuel_difference.pdf}
+    \end{figure}
+  \end{frame}
+
+
+  \section{Conclusion}
+  \begin{frame}
+      \frametitle{Fuel cycles modeling is useful for enegy planning and safeguards}
+      We have covered a tiny fraction of what fuel cycle modeling can do, but there is so much more to do. In our simple case, we transition from LEU+ to HALEU after 10 years of operation.
+      \begin{itemize}
+          \item For the Xe100 reactors, we need almost 315 less tons of HALEU.
+          \item For the MMR reactors, we need almost 97 less tons of HALEU.
+      \end{itemize}
+      Next we need to characterize what the cost of this transition would be.
+  \end{frame}
+
+
+\input{acks}
+
+
+
+%%--------------------------------%%
+%%--------------------------------%%
+\begin{frame}[allowframebreaks]
+  \frametitle{References}
+  \bibliographystyle{plain}
+  {\footnotesize \bibliography{bibliography.bib} }
+
+\end{frame}
+
+\appendix
+
+\begin{frame}
+    \frametitle{Know how to code?}
+    Consider volunteering as a TA or mentor in the Computational Resource Access NEtwork (CRANE) so we can support more students!
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.7\textwidth]{./images/CRANE_logo_inverted.png}
+    \end{figure}
+    Go to our website: \url{https://www.cranephysics.org}
+\end{frame}
+
+%%--------------------------------%%
+
+
+\end{document}
+
+
+
