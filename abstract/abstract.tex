@@ -1,50 +1,230 @@
-\documentclass[11pt, letterpaper]{article}
-\usepackage[utf8]{inputenc}
-\usepackage{caption} % for table captions
-\usepackage{amsmath} % for multi - line equations and piecewises
-\usepackage{graphicx}
-%\usepackage{textcomp}
-\usepackage{xspace}
-\usepackage{verbatim} % for block comments
-%\usepackage{subfig} % for subfigures
-\usepackage{enumitem} % for a) b) c) lists
-\newcommand{\Cyclus}{\textsc{Cyclus}\xspace} %
-\newcommand{\Cycamore}{\textsc{Cycamore}\xspace} %
-\usepackage{tabularx}
-\usepackage{color}
-\usepackage{setspace}
-\definecolor{bg}{rgb}{0.95, 0.95, 0.95}
-\newcolumntype{b}{X}
-\newcolumntype{f}{ > {\hsize=.15\hsize}X}
-\newcolumntype{s}{ > {\hsize=.5\hsize}X}
-\newcolumntype{m}{ > {\hsize=.75\hsize}X}
-\newcolumntype{r}{ > {\hsize=1.1\hsize}X}
-\usepackage{titling}
-\usepackage[hang, flushmargin]{footmisc}
-\renewcommand *\footnoterule{}
-\graphicspath{{images /}}
+\documentclass{anstrans}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{the title}
+\author{Nathan S. Ryan,$^{*}$ Kathryn D. Huff,$^{*}$ and Madicken Munk,$^{\dagger}$}
+
+\institute{
+$^{*}$Advanced Reactors and Fuel Cycles Group, University of Illinois,
+Urbana, IL, nsryan2@illinois.edu
+\and
+$^{\dagger}$Scientific Computing, Reactor Analysis and Modeling Group, Oregon State University, Corvallis, OR
+}
+
+% Optional disclaimer: remove this command to hide
+% \disclaimer{Notice: this manuscript is a work of fiction. Any resemblance to
+% actual articles, living or dead, is purely coincidental.}
+
+%%%% packages and definitions (optional)
+\usepackage{graphicx} % allows inclusion of graphics
+\usepackage{booktabs} % nice rules (thick lines) for tables
+\usepackage{microtype} % improves typography for PDF
 \usepackage[acronym,toc]{glossaries}
-\input{../acros}
+\include{../acros}
 
-\title{Title
-        \\ \vspace{0.5em}  Poster Abstract}
-\author{Authors}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
 
+\newcommand{\SN}{S$_N$}
+\renewcommand{\vec}[1]{\bm{#1}} %vector is bold italic
+\newcommand{\vd}{\bm{\cdot}} % slightly bold vector dot
+\newcommand{\grad}{\vec{\nabla}} % gradient
+\newcommand{\ud}{\mathop{}\!\mathrm{d}} % upright derivative symbol
 
 \begin{document}
-	\maketitle
-	\hrule
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
 
-\section * {}
-\doublespacing
+As we began developing advanced reactor programs and demonstrations, increasingly fueled by \gls{haleu}, the issues of establishing an appropriate fuel cycle have come to the forefront. \gls{leu} has been the standard for light water reactors, but as we look to advanced reactors, we must consider the implications of using \gls{haleu} and how to best implement it. One of the most pressing questions is whether we should enrich to \gls{leup} or \gls{haleu}. This work will explore the implications of each option.
 
-%Put your content here.
+One of the primary advantages for a fuel cycle containing \gls{leup} is that the facility to produce it would fall under the same licensing category as \gls{leu} fuel. The \gls{nrc} defines a \textit{special nuclear material of low strategic significance} as meeting one of three criteria, the most notable of which for our purposes is "(3) 10,000 grams or more of uranium-235 (contained in uranium enriched above natural but less than 10 percent in the U–235 isotope)," \cite{nrc_catiii}. This facility definition is where the upper limit of the \gls{leup} range arises.
 
-This sentence is used as an example citation call ~\cite{call_tag}.
+To enrich to up to \gls{haleu}, facilities such as TRISO-X LLC and Kairos Power Atlas Fuel Fabrication Facility must move up a category to \textit{special nuclear material of moderate strategic significance} (Category II). Thus, \gls{leup} is an attractive intermediary step for servicers wishing to minimize the size of a Category II facility (thereby reducing costs) as it is the same category we have historically licensed for \gls{leu} fuel enrichment.
 
-Example acronym call \gls{SNF}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Theory}
 
-\bibliographystyle{unsrt}
-\bibliography{../bibliography.bib}
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=0.4\textwidth]{../images/cyclus_logo.png}
+  \label{fig:cyclus_logo}
+\end{figure}
 
+\begin{table}[H]
+  \centering
+  \caption{Deployment Schemes}
+  \label{tab:deployment_schemes}
+  \begin{tabular}{p{0.24\linewidth} p{0.60\linewidth}}
+      \hline
+      Scheme & Description \\
+      \hline
+      Greedy Deployment & Deploy the largest
+      reactor first at each time step, fill in the remaining capacity with
+      the next smallest, and so on. \\
+      Random Deployment & Uses a date and hour as seed to sample the
+      reactors list randomly. \\
+      Initially Random, Greedy Deployment & Randomly deploys reactors until
+      a reactor bigger than the remaining capacity is proposed for each time step,
+      then fills the remaining capacity with the greedy algorithm. \\
+      \hline
+  \end{tabular}
+\end{table}
+
+% \begin{algorithm}
+% \caption{Greedy Reactor Deployment Algorithm}
+% \begin{algorithmic}[1]
+%     \State Initialize demand
+%     \While{demand exists}
+%         \State Select the largest reactor that does not exceed demand
+%         \State Deploy reactors until the next reactor exceeds demand
+%         \State Update demand
+%     \EndWhile
+% \end{algorithmic}
+% \end{algorithm}
+
+% \begin{algorithm}
+%   \caption{Random Reactor Deployment Algorithm}
+%   \begin{algorithmic}[1]
+%       \State Initialize demand
+%       \While{demand exists}
+%           \State Randomly deploy a reactor that does not exceed demand
+%           \State Update demand
+%       \EndWhile
+%   \end{algorithmic}
+%   \end{algorithm}
+
+%   \begin{algorithm}
+%     \caption{Random + Greedy Reactor Deployment Algorithm}
+%     \begin{algorithmic}[1]
+%         \State Initialize demand
+%         \While{demand exists}
+%             \State Randomly deploy a reactor
+%             \If{demand is exceeded}
+%                 \State Remove last reactor
+%                 \If{demand still exists}
+%                     \State Select the largest reactor that does not exceed demand
+%                     \State Deploy until the next reactor exceeds demand
+%                     \State Update demand
+%                 \EndIf
+%             \EndIf
+%         \EndWhile
+%     \end{algorithmic}
+%     \end{algorithm}
+
+% \begin{subequations} \label{eqs:fullTransport}
+% \begin{multline} \label{eq:fullTransportVol}
+%   \vec{\Omega}\vd \grad \psi(\vec{x}, \vec{\Omega})
+%   + \sigma(\vec{x}) \psi (\vec{x}, \vec{\Omega})
+% \\ =
+%   \frac{\sigma_s(\vec{x})}{4\pi} \int_{4\pi} \psi(\vec{x},\vec{\Omega}')
+%   \ud\Omega' + \frac{q(\vec{x})}{4\pi}
+%   \equiv \frac{1}{4\pi} Q(\vec{x}) \,,
+% \end{multline}
+% inside $\vec{x} \in V$, $\vec{\Omega} \in 4\pi$, with an incident boundary
+% condition
+% \begin{equation} \label{eq:fullTransportBndy}
+%   \psi(\vec{x}, \vec{\Omega}) = \psi^b(\vec{x}, \vec{\Omega}) \,,
+%  \quad \vec{x} \in \partial V, \ \vec{\Omega} \vd \vec{n} < 0\,.
+% \end{equation}
+% \end{subequations}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Results and Analysis}
+Table \ref{tab:enrichment_levels} shows the various levels of enrichment for uranium that we will use in this work.
+
+\begin{table}[!htbp]
+   \centering
+   \caption{Enrichment levels and their ranges.}
+   \label{tab:enrichment_levels}
+   \begin{tabular}{c c}
+      \hline
+      \textbf{Enrichment Level} & \textbf{Range [\%  $^{235}$U]} \\
+      \hline
+      Natural & < 0.711 \\
+      \gls{leu} & 0.711-5 \\
+      \gls{leup} & 5-10 \\
+      \gls{haleu} & 10-20 \\
+      % \gls{heu} & $\geq$ 20  \\
+      \hline
+   \end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Subsection Goes Here (Heading B)}
+The user must manually capitalize initial letters of a subsection heading.
+
+For those who like equations in their papers, \LaTeX\ is a good choice. Here is
+an equation for the Marshak diffusion boundary condition:
+\begin{equation} \label{eq:marshak}
+  4 J^- = \phi + 2 D \vec{n} \vd \grad \phi \,.
+\end{equation}
+If we so choose, we can effortlessly reference the equation later.
+
+Another paragraph starts with Eq.~\eqref{eq:marshak} and sets $J^-$ to zero, a
+vacuum boundary condition:
+\begin{equation*}
+  0 = \phi + \frac{2}{3} \frac{1}{\sigma} \vec{n} \vd \grad \phi \,.
+\end{equation*}
+The extrapolation distance is $2/3$. A more detailed asymptotic analysis yields
+an extrapolation distance of about $0.71045$.
+
+
+
+% Later on, we can include a table, even one that spans two columns such as
+% Table~\ref{tab:widetable}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{table*}[htb]
+%   \centering
+%   \caption{Example of a Really Wide Table that Might Not Normally Fit in the Document}
+%   \begin{tabular}{llllllllll}\toprule
+%       & $\phi_T(0)$      & $\phi_T(10)$      & $\phi_T(20)$      &
+%       $\phi_D(0)$      & $\phi_D(10)$      & $\phi_D(20)$      & $\rho$      &
+%       $\varepsilon$      & $N_\text{it}$
+% \\ \midrule
+% $c=0.999$  & 0.9038 & 20.63 & 31.24 & 0.9087 & 20.63 & 31.23 & 0.2192 & $10^{-7}$ & 15
+% \\
+% $c=0.990$  & 0.3675 & 13.04 & 24.7 & 0.3696 & 13.04 & 24.69 & 0.2184 & $10^{-7}$ & 15
+% \\
+% $c=0.900$  & 0.009909 & 4.776 & 17.64 & 0.009984 & 4.786 & 17.63 & 0.2118 & $10^{-7}$ & 14
+% \\
+% $c=0.500$  & $6.069\times 10^{-5}$ & 2.212 & 15.53 & 6.213$\times 10^{-5}$ & 2.239 & 15.53 & 0.2068 & $10^{-7}$ & 13
+% \\
+% \bottomrule
+% \end{tabular}
+%   \label{tab:widetable}
+% \end{table*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Notice how the table reference uses a Roman numeral
+% for its numbering scheme, whereas the figure reference uses an Arabic numeral.
+% For one-column tables, use the \verb|table| environment; two-column tables use
+% \verb|table*|. The same applies to figures.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusions (Heading A)}
+
+The included ANS style file and this clear example file are a panacea for
+the hours of headache that invariably results from formatting a document in
+Microsoft Word.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+\section{Appendix}
+
+Numbering in the appendix is different:
+\begin{equation} \label{eq:appendix}
+  2 + 2 = 5\,.
+\end{equation}
+and another equation:
+\begin{equation} \label{eq:appendix2}
+  a + b = c\,.
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Acknowledgments}
+This material is based upon work supported by a Department of Energy Nuclear
+Energy University Programs Graduate Fellowship.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{ans}
+\bibliography{../bibliography}
 \end{document}
+

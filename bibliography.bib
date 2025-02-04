@@ -198,3 +198,1118 @@ year={1985}
 	author={Stacey, Weston M.},
 	year={2018}
 }
+
+
+
+
+@inproceedings{huff_extensions_2014,
+	address = {Anaheim, CA, United States},
+	title = {Extensions to the {Cyclus} {Ecosystem} {In} {Support} of {Market}-{Driven} {Transition} {Capability}},
+	abstract = {The C YCLUS Fuel Cycle Simulator [1] is a framework
+for assessment of nuclear fuel cycle options. While C Y -
+CLUS has previously been capable of system transitions
+from the current fuel cycle strategy to a future option, those
+transitions have never previously been driven by market
+forces in the simulation. This summary describes a set
+of libraries [2] that have been contibuted to the C YCLUS
+framework to enable a market-driven transition analysis.
+This simulation framework is incomplete without a suite
+of dynamically loadable libraries representing the process
+physics of the nuclear fuel cycle (i.e. mining, fuel fabri-
+cation, chemical processing, transmutation, reprocessing,
+etc.). Within Cycamore [3], the additional modules reposi-
+tory within the C YCLUS ecosystem, provides some basic li-
+braries to represent these processes. However, extension of
+C YCLUS with new capabilities is community-driven, rely-
+ing on contributions by user-developers. The libraries con-
+tributed in this work are examples of such contributions.},
+	booktitle = {Transactions of the {American} {Nuclear} {Society}},
+	publisher = {American Nuclear Society},
+	author = {Huff, Kathryn D. and Fratoni, Massimiliano and Greenberg, Harris},
+	month = nov,
+	year = {2014}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% fuel depletion models %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@article{bae_deep_2020,
+	title = {Deep learning approach to nuclear fuel transmutation in a fuel cycle simulator},
+    author = {Bae, Jin Whan and Rykhlevskii, Andrei and Chee, Gwendolyn and Huff, Kathryn D.},
+	journal = {Annals of Nuclear Energy},
+    year = {2020},
+	volume = {139},
+	issn = {0306-4549},
+	url = {https://www.sciencedirect.com/science/article/pii/S0306454919307406},
+	doi = {10.1016/j.anucene.2019.107230},
+	abstract = {We trained a neural network model to predict Pressurized Water Reactor (PWR) Used Nuclear Fuel (UNF) composition given initial enrichment and burnup. This quick, flexible, medium-fidelity method to estimate depleted PWR fuel assembly compositions is used to model scenarios in which the PWR fuel burnup and enrichment vary over time. The Used Nuclear Fuel Storage, Transportation \& Disposal Analysis Resource and Data System (UNF-ST\&DARDS) Unified Database (UDB) provided a ground truth on which the model trained. We validated the model by comparing the U.S. UNF inventory profile predicted by the model with the UDB UNF inventory profile. The neural network yields less than 1\% error for UNF inventory decay heat and activity and less than 2\% error for major isotopic inventory. The neural network model takes 0.27 s for 100 predictions, compared to 118 s for 100 Oak Ridge Isotope GENeration (ORIGEN) calculations. We also implemented this model into Cyclus, an agent-based Nuclear Fuel Cycle (NFC) simulator, to perform rapid, medium-fidelity PWR depletion calculations. This model also allows discharge of batches with assemblies of varying burnup. Since the original private data cannot be retrieved from the model, this trained model can provide open-source depletion capabilities to NFC simulators. We show that training an artificial neural network with a dataset from a complex fuel depletion model can provide rapid, medium-fidelity depletion capabilities to large-scale fuel cycle simulations.},
+	urldate = {2024-10-31},
+	month = may,
+	keywords = {Artificial neural network, Machine learning, Nuclear fuel cycle, Simulation, Spent nuclear fuel},
+}
+
+
+@inproceedings{skutnik_cyborg_2016,
+	address = {Las Vegas, Nevada, United States},
+	series = {Fuel {Cycle} and {Waste} {Management}: {General}—{II}},
+	title = {{CyBORG}: {An} {ORIGEN}-{Based} {Reactor} {Analysis} {Capability} for {Cyclus}},
+	volume = {115},
+	booktitle = {Transactions of the {American} {Nuclear} {Society}},
+	publisher = {American Nuclear Society},
+	author = {Skutnik, Steven E. and Sly, Nicholas C. and Littell, Jennifer Lynn},
+	month = nov,
+	year = {2016},
+	keywords = {C++, Code, Fuel cycle, Geniusv2, Global Evaluation of Nuclear Infrastructure Utilization Scenarios (GENIUS), Simulation, Technology},
+	pages = {299--301},
+	file = {Skutnik et al. - 2016 - CyBORG An ORIGEN-Based Reactor Analysis Capabilit.pdf:C\:\\Users\\abachmann\\Zotero\\storage\\8R88JQVT\\43GGN9WD.pdf:application/pdf},
+}
+
+@article{schneider_nfcsim_2005,
+	title = {{NFCSim}: {A} {Dynamic} {Fuel} {Burnup} and {Fuel} {Cycle} {Simulation} {Tool}},
+	volume = {151},
+	number = {1},
+	journal = {Nuclear Technology},
+	author = {Schneider, Erich A. and Bathke, Charles G. and James, Michael R.},
+	month = jul,
+	year = {2005},
+	keywords = {Fuel cycle, Reactivity Modeling, Simulation},
+	pages = {35--50},
+	file = {NT-151-1-35-Schneider, et al.pdf:C\:\\Users\\abachmann\\Zotero\\storage\\FV66APMP\\NT-151-1-35-Schneider, et al.pdf:application/pdf},
+}
+
+@techreport{schneider_integrated_2016,
+	title = {An {Integrated} {Fuel} {Depletion} {Calculator} for {Fuel} {Cycle} {Options} {Analysis}},
+	url = {http://www.osti.gov/servlets/purl/1258475/},
+	language = {en},
+	number = {12-4065, 1258475},
+	urldate = {2019-12-03},
+	institution = {battelle Energy Alliance, LLC},
+	author = {Schneider, Erich and Scopatz, Anthony},
+	month = apr,
+	year = {2016},
+	doi = {10.2172/1258475},
+	pages = {12--4065, 1258475},
+	file = {[PDF] inl.gov:C\:\\Users\\abachmann\\Zotero\\storage\\7F44GAQ6\\Schneider and Scopatz - 2016 - An Integrated Fuel Depletion Calculator for Fuel C.pdf:application/pdf;Schneider and Scopatz - 2016 - An Integrated Fuel Depletion Calculator for Fuel C.pdf:C\:\\Users\\abachmann\\Zotero\\storage\\T8ZXE4A9\\Schneider and Scopatz - 2016 - An Integrated Fuel Depletion Calculator for Fuel C.pdf:application/pdf},
+}
+
+@article{yacout_visionverifiable_2006,
+	title = {{VISION}–{Verifiable} {Fuel} {Cycle} {Simulation} of {Nuclear} {Fuel} {Cycle} {Dynamics}},
+	journal = {Waste Management},
+	author = {Yacout, AM and Jacobson, JJ and Matthern, GE and Piet, SJ and Shropshire, DE and Laws, CT},
+	year = {2006},
+	file = {3394908.pdf:C\:\\Users\\abachmann\\Zotero\\storage\\3V77IV87\\9T3W4J57.pdf:application/pdf},
+}
+
+@article{richards_application_2021,
+	title = {Application of sensitivity analysis in {DYMOND}/{Dakota} to fuel cycle transition scenarios},
+	volume = {7},
+	copyright = {© S. Richards and B. Feng, Published by EDP Sciences, 2021},
+	issn = {2491-9292},
+	doi = {10.1051/epjn/2021024},
+	abstract = {The ability to perform sensitivity analysis has been enabled for the nuclear fuel cycle simulator DYMOND through its coupling with the design and analysis toolkit Dakota. To test and demonstrate these new capabilities, a transition scenario and multi-parameter study were devised. The transition scenario represents a partial transition from the US nuclear fleet to a closed fuel cycle with small modular LWRs and fast reactors fueled by reprocessed used nuclear fuel. Four uncertain parameters in this transition were studied – start date of reprocessing, total reprocessing capacity, the nuclear energy demand growth, and the rate at which the fast reactors are deployed – with respect to their impact on four response metrics. The responses – total natural uranium consumed, maximum annual enrichment capacity required, total disposed mass, and total cost of the nuclear fuel cycle – were chosen based on measures known to be of interest in transition scenarios [] and to be significantly impacted by the varying parameters. Analysis of this study was performed both from the direct sampling and through surrogate models developed in Dakota to calculate the global sensitivity measures Sobol’ indices. This example application of this new capability showed that the most consequential parameter to most metrics was the share of new build capacity that is fast reactors. However, for the cost metric, the scaling factor of the energy demand growth was significant and had synergistic behavior with the fast reactor new build share.},
+	language = {en},
+	urldate = {2022-02-09},
+	journal = {EPJ Nuclear Sciences \& Technologies},
+	author = {Richards, S. and Feng, B.},
+	year = {2021},
+	note = {Published: = https://www.epj-n.org/articles/epjn/abs/2021/01/epjn210022/epjn210022.html},
+	pages = {26},
+	annote = {Publisher: EDP Sciences},
+	file = {Application of sensitivity analysis in DYMOND_Dakota to fuel cycle transition scenarios - 1841572.pdf:C\:\\Users\\abachmann\\Zotero\\storage\\HHJRD9YK\\Application of sensitivity analysis in DYMOND_Dakota to fuel cycle transition scenarios - 1841572.pdf:application/pdf;Full Text PDF:C\:\\Users\\abachmann\\Zotero\\storage\\Q3G5TYM8\\BYDIMIBN.pdf:application/pdf;Snapshot:C\:\\Users\\abachmann\\Zotero\\storage\\I5FBNX4K\\epjn210022.html:text/html},
+}
+
+@article{feng_standardized_2016,
+	title = {Standardized verification of fuel cycle modeling},
+	volume = {94},
+	issn = {0306-4549},
+	url = {http://www.sciencedirect.com/science/article/pii/S0306454916301098},
+	doi = {10.1016/j.anucene.2016.03.002},
+	abstract = {A nuclear fuel cycle systems modeling and code-to-code comparison effort was coordinated across multiple national laboratories to verify the tools needed to perform fuel cycle analyses of the transition from a once-through nuclear fuel cycle to a sustainable potential future fuel cycle. For this verification study, a simplified example transition scenario was developed to serve as a test case for the four systems codes involved (DYMOND, VISION, ORION, and MARKAL), each used by a different laboratory participant. In addition, all participants produced spreadsheet solutions for the test case to check all the mass flows and reactor/facility profiles on a year-by-year basis throughout the simulation period. The test case specifications describe a transition from the current US fleet of light water reactors to a future fleet of sodium-cooled fast reactors that continuously recycle transuranic elements as fuel. After several initial coordinated modeling and calculation attempts, it was revealed that most of the differences in code results were not due to different code algorithms or calculation approaches, but due to different interpretations of the input specifications among the analysts. Therefore, the specifications for the test case itself were iteratively updated to remove ambiguity and to help calibrate interpretations. In addition, a few corrections and modifications were made to the codes as well, which led to excellent agreement between all codes and spreadsheets for this test case. Although no fuel cycle transition analysis codes matched the spreadsheet results exactly, all remaining differences in the results were due to fundamental differences in code structure and/or were thoroughly explained. The specifications and example results are provided so that they can be used to verify additional codes in the future for such fuel cycle transition scenarios.},
+	urldate = {2016-04-09},
+	journal = {Annals of Nuclear Energy},
+	author = {Feng, B. and Dixon, B. and Sunny, E. and Cuadra, A. and Jacobson, J. and Brown, N. R. and Powers, J. and Worrall, A. and Passerini, S. and Gregg, R.},
+	month = aug,
+	year = {2016},
+	keywords = {DYMOND, MARKAL, ORION, VISION},
+	pages = {300--312},
+	file = {1-s2.0-S0306454916301098-main.pdf:C\:\\Users\\abachmann\\Zotero\\storage\\L8ULABGR\\8WWHCWAD.pdf:application/pdf;Fulltext:C\:\\Users\\abachmann\\Zotero\\storage\\ADDSN88T\\Feng et al. - 2016 - Standardized verification of fuel cycle modeling.pdf:application/pdf;ScienceDirect Full Text PDF:C\:\\Users\\abachmann\\Zotero\\storage\\23J5WA76\\Feng et al. - 2016 - Standardized verification of fuel cycle modeling.pdf:application/pdf;ScienceDirect Snapshot:C\:\\Users\\abachmann\\Zotero\\storage\\MJNXGKS9\\S0306454916301098.html:text/html;ScienceDirect Snapshot:C\:\\Users\\abachmann\\Zotero\\storage\\9EZJ5QQW\\S0306454916301098.html:text/html;ScienceDirect Snapshot:C\:\\Users\\abachmann\\Zotero\\storage\\85J6G9RY\\S0306454916301098.html:text/html;Snapshot:C\:\\Users\\abachmann\\Zotero\\storage\\M48VDZVX\\S0306454916301098.html:text/html},
+}
+
+@article{openmcyclus_paper,
+  author = {Amanda M. Bachmann, Oleksandr Yardas and Madicken Munk},
+  title = {An Open-Source Coupling for Depletion During Fuel Cycle Modeling},
+  journal = {Nuclear Science and Engineering},
+  volume = {0},
+  number = {0},
+  pages = {1--14},
+  year = {2024},
+  publisher = {Taylor \& Francis},
+  doi = {10.1080/00295639.2024.2393940},
+  URL = {https://doi.org/10.1080/00295639.2024.2393940},
+  eprint = {https://doi.org/10.1080/00295639.2024.2393940},
+  abstract = { Fuel depletion is an important aspect of fuel cycle modeling, allowing a user to account for how loaded fuel compositions affect in-core and spent fuel compositions and their related fuel cycle metrics. Therefore, multiple methods have been developed to account for depletion within fuel cycle simulations. This work adds to that list of methods by introducing an open-source coupling between Cyclus and OpenMC to perform fuel depletion during a fuel cycle simulation, called OpenMCyclus. This work explains the methodology of OpenMCyclus and presents a benchmark comparison between the performance of OpenMCyclus and another Cyclus archetype that uses recipes to define spent fuel compositions. The development of this coupling expands the functionalities possible through Cyclus by providing real-time fuel depletion that is reactor agnostic and open source. }
+}
+
+
+@phdthesis{bachmann_thesis_2023,
+	type = {Thesis},
+	title = {Investigation of the impacts of deploying reactors fueled by high-assay low enriched uranium},
+	copyright = {Copyright by Amanda M. Bachmann. All rights reserved.},
+	url = {https://hdl.handle.net/2142/121987},
+	abstract = {The United States is considering the deployment of advanced reactors that require uranium enriched between 5-20\% 235U, often referred to as High Assay Low Enriched Uranium (HALEU). At the present, there are no commercial facilities in the US to produce HALEU, prompting questions of how to create a dependable supply chain of HALEU to support these reactors. HALEU can be produced through two primary methods: downblending High Enriched Uranium (HEU) and enriching natural uranium. The amount of HEU available and impurities present in the HEU limit downblending capabilities. The Separative Work Unit (SWU) capacity and amount of natural uranium available limit enriching natural uranium capabilities. To understand the resources necessary to commercially produce HALEU with each of these methods, one can quantify the material requirements of transitioning to HALEU-fueled reactors.
+
+In this dissertation, we model the transition from Light Water Reactors to different advanced reactors, considering once-through and closed fuel cycles to determine material requirements for supporting these fuel cycles. Material requirements of interest across this work include the mass of enriched uranium, mass of HALEU, feed uranium, SWU capacity, and the mass of used fuel sent for disposal. We use CYCLUS and publicly-available information about Light Water Reactors, the X-energy Xe-100, the Ultra Safe Nuclear Corporation Micro Modular Reactor, and the NuScale VOYGR to model potential transition scenarios and demonstrate the methodologies developed in this work. To more accurately model the closed fuel cycles, we develop a new CYCLUS archetype, called OpenMCyclus, that couples with OpenMC to dynamically model fuel depletion in a reactor and provide more accurate used fuel compositions. The results of this transition analysis show how the characteristics of the advanced reactors deployed drive the materials required to support the fuel cycle. Closing the fuel cycle reduces the materials required, but the reduction in materials is driven by the amount of material available for reprocessing.
+
+To gain more insight into how transition parameters not considered in the transition analysis affect material requirements, we perform sensitivity analysis on one of the once-through transitions by coupling CYCLUS with Dakota. The results of the sensitivity analysis highlight some of the trade-offs between different reactor designs. One such tradeoff is the increased HALEU demand but decreased used fuel discharged when increasing the Xe-100 deployment and decreasing the VOYGR deployment. Additionally, these results identify the Xe-100 discharge burnup as consistently being one of the most impactful input parameters for this transition, because of how the deployment scheme in this work affects the number of Xe-100s built no matter which advanced reactor build share is specified.
+
+To identify potential transitions that minimize material requirements, we then use the CYCLUS-Dakota to optimize a once-through transition using the genetic algorithms in Dakota. In single-objective problems to minimize the SWU capacity required to produce HALEU and minimize the amount of used nuclear fuel, the algorithm finds solutions that are consistent with the results of the sensitivity analysis. The results cannot be taken at face value, because the algorithm did not fully converge and the genetic algorithms do not enforce the applied linear constraint for the advanced reactor build shares to sum to 100\%. However, the results provide guidance on how to adjust the input parameters to optimize the transition for a minimal HALEU SWU or the used fuel mass. Parameter adjustments include maximizing the number of Light Water Reactors that receive license extensions to operate for 80 years. Similar results occur when using this method for a multi-objective problem to minimize both the HALEU SWU capacity and the used fuel mass.
+
+Finally, we use neutronics models of the Xe-100 and Micro Modular Reactor reactor designs to evaluate the steady-state reactor physics performance of downblended HEU in these two designs. We compare the performance of the downblended HEU to nominally enriched fuel, based on the k-eff, βeff, energy- and spatially-dependent neutron fluxes, as well as the fuel, moderator, coolant, and total reactivity temperature feedback coefficients. The differences in the fuel compositions leads to differences in each of the metrics. However, these differences are within error of the results of the nominally enriched fuel, or would not prevent the reactor from meeting stated design specifications or operating in a safe state.
+
+The work completed in this dissertation develops and demonstrates a methodology for modeling fuel cycle transitions and understanding the effects of deploying HALEU-fueled reactors in the US. The effects investigated in these example scenarios include various materials and resources required to support these reactors, and how the parameters of the transition affect these requirements. The information generated from this new methodology can be used to develop the necessary infrastructure and supply chains for support a transition to HALEU-fueled reactors. Furthermore, this work explores how the HALEU production method (enriching compared with downblending) affects reactor performance.},
+	urldate = {2025-01-15},
+	school = {University of Illinois at Urbana-Champaign},
+	author = {Bachmann, Amanda M.},
+	month = nov,
+	year = {2023},
+	file = {Full Text PDF:/Users/nsryan/Zotero/storage/96ASLMX4/Bachmann - 2023 - Investigation of the impacts of deploying reactors.pdf:application/pdf},
+}
+
+
+
+@article{romano_openmc_2015,
+	series = {Joint {International} {Conference} on {Supercomputing} in {Nuclear} {Applications} and {Monte} {Carlo} 2013, {SNA} + {MC} 2013. {Pluri}- and {Trans}-disciplinarity, {Towards} {New} {Modeling} and {Numerical} {Simulation} {Paradigms}},
+	title = {{OpenMC}: {A} state-of-the-art {Monte} {Carlo} code for research and development},
+	volume = {82},
+	issn = {0306-4549},
+	shorttitle = {{OpenMC}},
+	url = {https://www.sciencedirect.com/science/article/pii/S030645491400379X},
+	doi = {10.1016/j.anucene.2014.07.048},
+	abstract = {This paper gives an overview of OpenMC, an open source Monte Carlo particle transport code recently developed at the Massachusetts Institute of Technology. OpenMC uses continuous-energy cross sections and a constructive solid geometry representation, enabling high-fidelity modeling of nuclear reactors and other systems. Modern, portable input/output file formats are used in OpenMC: XML for input, and HDF5 for output. High performance parallel algorithms in OpenMC have demonstrated near-linear scaling to over 100,000 processors on modern supercomputers. Other topics discussed in this paper include plotting, CMFD acceleration, variance reduction, eigenvalue calculations, and software development processes.},
+	urldate = {2024-10-31},
+	journal = {Annals of Nuclear Energy},
+	author = {Romano, Paul K. and Horelik, Nicholas E. and Herman, Bryan R. and Nelson, Adam G. and Forget, Benoit and Smith, Kord},
+	month = aug,
+	year = {2015},
+	keywords = {HDF5, Monte Carlo, Neutron transport, OpenMC, Parallel, XML},
+	pages = {90--97},
+	file = {ScienceDirect Snapshot:/Users/nsryan/Zotero/storage/ZPYNEHGW/S030645491400379X.html:text/html},
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% legislative_framework %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@book{european_commission_joint_research_centre_ghg_2021,
+	address = {LU},
+	title = {{GHG} emissions of all world: 2021 report.},
+	shorttitle = {{GHG} emissions of all world},
+	url = {https://data.europa.eu/doi/10.2760/173513},
+	language = {eng},
+	urldate = {2023-05-08},
+	publisher = {Publications Office},
+	author = {{European Commission. Joint Research Centre.}},
+	year = {2021},
+}
+
+@article{york_alternative_2012,
+	title = {Do alternative energy sources displace fossil fuels?},
+	volume = {2},
+	copyright = {2012 Springer Nature Limited},
+	issn = {1758-6798},
+	url = {https://www.nature.com/articles/nclimate1451},
+	doi = {10.1038/nclimate1451},
+	abstract = {Analysts implicitily assume that increasing renewable-energy generation by one unit displaces conventional energy by the same amount. Research now shows that, owing to the complexity of our socio–economic systems, each unit of total national non-fossil-fuel energy use displaced less than one-quarter of a unit of fossil-fuel energy use over the past 50 years.},
+	language = {en},
+	number = {6},
+	urldate = {2024-01-18},
+	journal = {Nature Climate Change},
+	author = {York, Richard},
+	month = jun,
+	year = {2012},
+	note = {Number: 6
+Publisher: Nature Publishing Group},
+	keywords = {Climate change, Environmental social sciences},
+	pages = {441--443},
+	file = {Full Text PDF:/home/nsryan/Zotero/storage/LL2B7MLH/York - 2012 - Do alternative energy sources displace fossil fuel.pdf:application/pdf},
+}
+
+@article{york_energy_2019,
+	title = {Energy transitions or additions?: {Why} a transition from fossil fuels requires more than the growth of renewable energy},
+	volume = {51},
+	issn = {2214-6296},
+	shorttitle = {Energy transitions or additions?},
+	url = {https://www.sciencedirect.com/science/article/pii/S2214629618312246},
+	doi = {10.1016/j.erss.2019.01.008},
+	abstract = {Is an energy transition currently in progress, where renewable energy sources are replacing fossil fuels? Previous changes in the proportion of energy produced by various sources – such as in the nineteenth century when coal surpassed biomass in providing the largest share of the global energy supply and in the twentieth century when petroleum overtook coal – could more accurately be characterized as energy additions rather than transitions. In both cases, the use of the older energy source continued to grow, despite rapid growth in the new source. Evidence from contemporary trends in energy production likewise suggest that as renewable energy sources compose a larger share of overall energy production, they are not replacing fossil fuels but are rather expanding the overall amount of energy that is produced. We argue that although it is reasonable to expect that renewables will come to provide a growing share of the global energy supply, it is misleading to characterize this growth in renewable energy as a “transition” and that doing so could inhibit the implementation of meaningful policies aimed at reducing fossil fuel use.},
+	urldate = {2024-01-18},
+	journal = {Energy Research \& Social Science},
+	author = {York, Richard and Bell, Shannon Elizabeth},
+	month = may,
+	year = {2019},
+	keywords = {Biofuels, Coal, Energy transition, Renewables},
+	pages = {40--43},
+	file = {ScienceDirect Snapshot:/home/nsryan/Zotero/storage/7DMFPXQM/S2214629618312246.html:text/html},
+}
+
+@article{bell_toward_2020,
+	title = {Toward feminist energy systems: {Why} adding women and solar panels is not enough},
+	volume = {68},
+	issn = {2214-6296},
+	shorttitle = {Toward feminist energy systems},
+	url = {https://www.sciencedirect.com/science/article/pii/S221462962030133X},
+	doi = {10.1016/j.erss.2020.101557},
+	abstract = {Growth in renewable energy does not displace fossil fuel use on a one-to-one basis, but rather increases the total amount of energy that is produced. As numerous scholars have argued, an energy transition away from – rather than in addition to – fossil fuels will require more than technology and financial capital. Here we argue that a feminist perspective on energy provides an important framework for understanding what keeps us stuck in unsustainable energy cultures, as well as a paradigm for designing truly just energy systems. Feminist approaches have been widely taken up in environmental and ecofeminist work, as well as in climate change research. In energy studies, however, gender-related research has tended to focus more narrowly on women's issues. Although this is crucial work, the focus on women represents just one dimension of what feminism can bring to the study of energy. Feminist theory also offers expertise in the study of power more broadly, which is widely applicable to the full spectrum of energy research. This article outlines a feminist energy research agenda that addresses many aspects of energy system design, planning, exchange, and use. We analyze energy along four intersecting coordinates: the political (democratic, decentralized and pluralist); economic (prioritizing human well-being and biodiversity over profit and unlimited growth); socio-ecological (preferring relationality over individualism); and technological (privileging distributed and decentralized fuel power and people power). In doing so, we show that feminism is well-suited for navigating the tangled web of power, profit, and technological innovation that comprises human fuel use.},
+	urldate = {2023-09-29},
+	journal = {Energy Research \& Social Science},
+	author = {Bell, Shannon Elizabeth and Daggett, Cara and Labuski, Christine},
+	month = oct,
+	year = {2020},
+	keywords = {Degrowth, Ecofeminism, Energy democracy, Feminist energy, Fossil fuels, Just transition},
+	pages = {101557},
+	file = {ScienceDirect Full Text PDF:/home/nsryan/Zotero/storage/49ULE8VM/Bell et al. - 2020 - Toward feminist energy systems Why adding women a.pdf:application/pdf;ScienceDirect Snapshot:/home/nsryan/Zotero/storage/T36Q4N6I/S221462962030133X.html:text/html},
+}
+
+@misc{texas_ercot_nodate,
+	title = {{ERCOT}: {Texas} {Energy} {Tour} of {Economy}},
+	shorttitle = {{ERCOT}},
+	url = {https://comptroller.texas.gov/economy/economic-data/energy/2023/ercot.php},
+	abstract = {To ensure the proper management of energy in Texas, the Electric Reliability Council of Texas (ERCOT) was created in 1970 and is responsible for overseeing the reliable transmission of electricity to the power grid that serves over 26 million Texans.},
+	language = {en},
+	year = {2023},
+	urldate = {2024-01-18},
+	author = {Texas Comptroller of Public Accounts, Tx},
+	file = {Snapshot:/home/nsryan/Zotero/storage/MIZUMHNB/ercot.html:text/html},
+}
+
+@article{farokhi_soofi_farm_2022,
+	title = {Farm electrification: {A} road-map to decarbonize the agriculture sector},
+	volume = {35},
+	issn = {1040-6190},
+	shorttitle = {Farm electrification},
+	url = {https://www.sciencedirect.com/science/article/pii/S1040619022000021},
+	doi = {10.1016/j.tej.2022.107076},
+	abstract = {Electrification is a promising approach to most carbon-emitting sectors of economic sectors of human activities such as transportation and industry sectors. Electrifying the machinery and different systems used in a farm can mitigate the carbon footprint of the agriculture sector if renewable energy sources are coordinated with the agricultural loads appropriately. This paper presents a road-map that: 1) presents greenhouse gases emitting activities in the food supply chain, 2) the potential impact of vertical farming on the agriculture sector, 3) discuss the carbon footprint of different activities in the food supply chain, and 4) presents a road-map to decarbonize greenhouse gas emitting activities in farms. This paper estimates that electrification of farms in an appropriate process with renewable energy resources can decrease the carbon footprint of farming 44–70\% depends on the type of the farm.},
+	number = {2},
+	urldate = {2024-01-17},
+	journal = {The Electricity Journal},
+	author = {Farokhi Soofi, Arash and D. Manshadi, Saeed and Saucedo, Araceli},
+	month = mar,
+	year = {2022},
+	keywords = {Carbon footprint, Farm electrification, Greenhouse emission, Supply chain, Sustainable communities, Transportation},
+	pages = {107076},
+	file = {ScienceDirect Snapshot:/home/nsryan/Zotero/storage/REP7KJ5L/S1040619022000021.html:text/html},
+}
+
+@article{mallapragada_decarbonization_2023,
+	title = {Decarbonization of the chemical industry through electrification: {Barriers} and opportunities},
+	volume = {7},
+	issn = {25424351},
+	shorttitle = {Decarbonization of the chemical industry through electrification},
+	url = {https://linkinghub.elsevier.com/retrieve/pii/S2542435122006055},
+	doi = {10.1016/j.joule.2022.12.008},
+	abstract = {The chemical industry is a major source of economic productivity and employment globally and among the top 3 industrial sources of greenhouse gas (GHG) emissions, along with steel and cement. As global demand for chemical products continues to grow, there is an urgency to develop and deploy sustainable chemical production pathways and to reconsider continued investment in current emission-intensive production technologies. This perspective describes the challenges and opportunities to decarbonize the chemical industry via electriﬁcation powered by low-carbon electricity supply, both in the near term and long term, and it discusses four technological pathways ranging from the more mature direct substitution of heat with electricity and use of hydrogen to technologically less mature, yet potentially more selective, approaches based on electrochemistry and plasma. Finally, we highlight the key elements of integrating an electriﬁed industrial process with the power sector to leverage process ﬂexibility to reduce energy costs of chemical production and provide valuable power grid support services. Unlocking such plant-to-grid coordination and the four electriﬁcation pathways has signiﬁcant potential to facilitate rapid and deep decarbonization of the chemical industry sector.},
+	language = {en},
+	number = {1},
+	urldate = {2024-01-17},
+	journal = {Joule},
+	author = {Mallapragada, Dharik S. and Dvorkin, Yury and Modestino, Miguel A. and Esposito, Daniel V. and Smith, Wilson A. and Hodge, Bri-Mathias and Harold, Michael P. and Donnelly, Vincent M. and Nuz, Alice and Bloomquist, Casey and Baker, Kyri and Grabow, Lars C. and Yan, Yushan and Rajput, Nav Nidhi and Hartman, Ryan L. and Biddinger, Elizabeth J. and Aydil, Eray S. and Taylor, André D.},
+	month = jan,
+	year = {2023},
+	pages = {23--41},
+	file = {Mallapragada et al. - 2023 - Decarbonization of the chemical industry through e.pdf:/home/nsryan/Zotero/storage/962ZI8J9/Mallapragada et al. - 2023 - Decarbonization of the chemical industry through e.pdf:application/pdf},
+}
+
+%%%%%%%%%%%%%%%%
+% introduction %
+%%%%%%%%%%%%%%%%
+
+@misc{IAEA_PRIS,
+	author = {International Atomic Energy Agency, IAEA},
+	title = {Power Reactor Information System (PRIS) Database},
+	year = {2024},
+	url = {https://pris.iaea.org/},
+	note = {Accessed: 2024-09-30}
+}
+
+@misc{eia_elec_gen_2024,
+    type = {Government},
+    title = {U.{S}. {EIA} {What} is {U}.{S}. electricity generation by energy source?},
+    url = {https://www.eia.gov/tools/faqs/faq.php},
+    abstract = {Energy Information Administration - EIA - Official Energy Statistics from the U.S. Government},
+    urldate = {2024-10-01},
+    journal = {US EIA},
+    author = {{US Energy Information Administration}},
+    month = feb,
+    year = {2024},
+ }
+
+%%%%%%%
+% nfc %
+%%%%%%%
+
+@misc{atoms_for_peace,
+	type = {Text},
+	title = {Atoms for {Peace} {Speech}},
+    author = {President Dwight D. Eisenhower},
+	url = {https://www.iaea.org/about/history/atoms-for-peace-speech},
+	abstract = {Address by Mr. Dwight D. Eisenhower, President of the United States of America, to the 470th Plenary Meeting of the United Nations General Assembly Tuesday, 8 December 1953, 2:45 p.m.General Assembly President.},
+	language = {en},
+	urldate = {2024-01-24},
+	month = jul,
+	year = {1953},
+	note = {Publisher: IAEA},
+}
+
+@misc{member_states,
+	type = {Text},
+	title = {List of {Member} {States}},
+	url = {https://www.iaea.org/about/governance/list-of-member-states},
+	abstract = {Member States of the IAEA and dates of membership in order of accession to the Agency, starting from 1957. Learn more about how a State can become a member.},
+	language = {en},
+	urldate = {2024-01-24},
+	month = jun,
+	year = {2016},
+	note = {Publisher: IAEA},
+}
+
+@techreport{nea_red_book_2022,
+	address = {Paris},
+	type = {Biannual},
+	title = {Uranium 2022: {Resources}, {Production} and {Demand}},
+	shorttitle = {Uranium 2022},
+	url = {https://www.oecd-nea.org/jcms/pl_79960/uranium-2022-resources-production-and-demand?details=true},
+	abstract = {Uranium is the main raw material fuelling all nuclear fission reactors today. Countries around the world use it to reliably generate low-carbon electricity, process heat and hydrogen as part of their plans to reduce carbon emissions and increase energy security and supply. There is no nuclear fissio...},
+	language = {en},
+	number = {29},
+	urldate = {2024-10-19},
+	institution = {OECD Publishing},
+	author = {{NEA (2023)}},
+	year = {2023},
+	file = {Snapshot:/Users/nsryan/Zotero/storage/IYN2QB27/uranium-2022-resources-production-and-demand.html:text/html},
+}
+
+
+@article{insitu_review_2024,
+	title = {A {Review} of {In} {Situ} {Leaching} ({ISL}) for {Uranium} {Mining}},
+	volume = {4},
+	copyright = {http://creativecommons.org/licenses/by/3.0/},
+	issn = {2673-6489},
+	url = {https://www.mdpi.com/2673-6489/4/1/9},
+	doi = {10.3390/mining4010009},
+	abstract = {Uranium, a cornerstone for nuclear energy, facilitates a clean and efficient energy conversion. In the era of global clean energy initiatives, uranium resources have emerged as a vital component for achieving sustainability and clean power. To fulfill the escalating demand for clean energy, continual advancements in uranium mining technologies are imperative. Currently, established uranium mining methods encompass open-pit mining, underground mining, and in situ leaching (ISL). Notably, in situ leaching stands out due to its environmental friendliness, efficient extraction, and cost-effectiveness. Moreover, it unlocks the potential of extracting uranium from previously challenging low-grade sandstone-hosted deposits, presenting novel opportunities for uranium mining. This comprehensive review systematically classifies and analyzes various in situ leaching techniques, exploring their core principles, suitability, technological advancements, and practical implementations. Building on this foundation, it identifies the challenges faced by in situ leaching and proposes future improvement strategies. This study offers valuable insights into the sustainable advancement of in situ leaching technologies in uranium mining, propelling scientific research and practical applications in the field.},
+	language = {en},
+	number = {1},
+	urldate = {2024-10-19},
+	journal = {Mining},
+	author = {Li, Guihe and Yao, Jia},
+	month = mar,
+	year = {2024},
+	note = {Number: 1
+Publisher: Multidisciplinary Digital Publishing Institute},
+	keywords = {acid leaching, alkaline leaching, bioleaching, blasting-enhanced permeability (BEP), in situ leaching (ISL), neutral leaching, reactive transport model (RTM), uranium mining},
+	pages = {120--148},
+	file = {Full Text PDF:/Users/nsryan/Zotero/storage/LSH7A6W4/Li and Yao - 2024 - A Review of In Situ Leaching (ISL) for Uranium Min.pdf:application/pdf},
+}
+
+
+@article{milling_uranium_2022,
+	title = {Uranium: {The} {Nuclear} {Fuel} {Cycle} and {Beyond}},
+	volume = {23},
+	copyright = {http://creativecommons.org/licenses/by/3.0/},
+	issn = {1422-0067},
+	shorttitle = {Uranium},
+	url = {https://www.mdpi.com/1422-0067/23/9/4655},
+	doi = {10.3390/ijms23094655},
+	abstract = {This review summarizes the recent developments regarding the use of uranium as nuclear fuel, including recycling and health aspects, elucidated from a chemical point of view, i.e., emphasizing the rich uranium coordination chemistry, which has also raised interest in using uranium compounds in synthesis and catalysis. A number of novel uranium coordination features are addressed, such the emerging number of U(II) complexes and uranium nitride complexes as a promising class of materials for more efficient and safer nuclear fuels. The current discussion about uranium triple bonds is addressed by quantum chemical investigations using local vibrational mode force constants as quantitative bond strength descriptors based on vibrational spectroscopy. The local mode analysis of selected uranium nitrides, N≡U≡N, U≡N, N≡U=NH and N≡U=O, could confirm and quantify, for the first time, that these molecules exhibit a UN triple bond as hypothesized in the literature. We hope that this review will inspire the community interested in uranium chemistry and will serve as an incubator for fruitful collaborations between theory and experimentation in exploring the wealth of uranium chemistry.},
+	language = {en},
+	number = {9},
+	urldate = {2024-10-19},
+	journal = {International Journal of Molecular Sciences},
+	author = {Costa Peluzo, Bárbara Maria Teixeira and Kraka, Elfi},
+	month = jan,
+	year = {2022},
+	note = {Number: 9
+Publisher: Multidisciplinary Digital Publishing Institute},
+	keywords = {bond strength, local vibrational mode analysis, nuclear energy, uranium, uranium and health, uranium coordination chemistry, uranium nitrides, uranium triple bonds},
+	pages = {4655},
+	file = {Full Text PDF:/Users/nsryan/Zotero/storage/F6VD2CZJ/Costa Peluzo and Kraka - 2022 - Uranium The Nuclear Fuel Cycle and Beyond.pdf:application/pdf},
+}
+
+
+@techreport{cycle_risks,
+	title = {{PRO}-{X} {Fuel} {Cycle} {Transportation} and {Crosscutting} {Progress} {Report}},
+	url = {https://www.osti.gov/servlets/purl/1890069/},
+	language = {en},
+	number = {SAND2022-13387R, 1890069, 710373},
+	urldate = {2024-02-07},
+	author = {Honnold, Philip and Crabtree, Lauren and Higgins, Michael and Williams, Adam and Finch, Robert and Cipiti, Benjamin and Ammerman, Douglas and Farnum, Cathy and Kalinina, Elena and Ruehl, Matthew and Hawthorne, Krista},
+	institution = {Sandia National Laboratories},
+	month = sep,
+	year = {2022},
+	doi = {10.2172/1890069},
+	pages = {SAND2022--13387R, 1890069, 710373},
+	file = {Honnold et al. - 2022 - PRO-X Fuel Cycle Transportation and Crosscutting P.pdf:/home/nsryan/Zotero/storage/XSWQUXYA/Honnold et al. - 2022 - PRO-X Fuel Cycle Transportation and Crosscutting P.pdf:application/pdf},
+}
+
+@misc{eia_foregin_u3o8,
+	type = {Government},
+	title = {Table {S3a}. {Foreign} purchases, foreign sales, and uranium inventories owned by {U}.{S}. suppliers and owners and operators of {U}.{S}. civilian nuclear power reactors, 2002–2023},
+	url = {https://www.eia.gov//uranium/marketing/summarytable3a.php},
+	abstract = {Energy Information Administration - EIA - Official Energy Statistics from the U.S. Government},
+	urldate = {2024-10-01},
+	journal = {Uranium Marketing Annual Report},
+	author = {{US Energy Information Administration}},
+	file = {Snapshot:/home/nsryan/Zotero/storage/9CNFZHNE/summarytable3a.html:text/html},
+}
+
+@techreport{eia_uranium_statistics_2023,
+	title = {2023 {Domestic} {Uranium} {Production} {Report}},
+	url = {https://www.eia.gov/uranium/production/annual/pdf/dupr2023.pdf},
+	language = {en},
+	institution = {US Energy Information Administration},
+	author = {{EIA Electricity Supply \& Uranium Statistics \& Product Innovation Team}},
+	month = may,
+	year = {2024},
+	file = {2023 - 2023 Domestic Uranium Production Report.pdf:/home/nsryan/Zotero/storage/2UDFPMAV/2023 - 2023 Domestic Uranium Production Report.pdf:application/pdf},
+}
+
+
+@article{bachmann_enrichment_2021,
+	title = {Enrichment dynamics for advanced reactor {HALEU} support},
+	volume = {7},
+	copyright = {© A. M. Bachmann et al., Published by EDP Sciences, 2021},
+	issn = {2491-9292},
+	url = {https://www.epj-n.org/articles/epjn/abs/2021/01/epjn210024/epjn210024.html},
+	doi = {10.1051/epjn/2021021},
+	abstract = {Transitioning to High Assay Low Enriched Uranium-fueled reactors will alter the material requirements of the current nuclear fuel cycle, in terms of the mass of enriched uranium and Separative Work Unit capacity. This work simulates multiple fuel cycle scenarios using Cyclus to compare how the type of the advanced reactor deployed and the energy growth demand affect the material requirements of the transition to High Assay Low Enriched Uranium-fueled reactors. Fuel cycle scenarios considered include the current fleet of Light Water Reactors in the U.S. as well as a no-growth and a 1\% growth transition to either the Ultra Safe Nuclear Corporation Micro Modular Reactor or the X-energy Xe-100 reactor from the current fleet of U.S. Light Water Reactors. This work explored parameters of interest including the number of advanced reactors deployed, the mass of enriched uranium sent to the reactors, and the Separative Work Unit capacity required to enrich natural uranium for the reactors. Deploying Micro Modular Reactors requires a higher average mass and Separative Work Unit capacity than deploying Xe-100 reactors, and a lower enriched uranium mass and a higher Separative Work Unity capacity than required to fuel Light Water Reactors before the transition. Fueling Xe-100 reactors requires less enriched uranium and Separative Work Unit capacity than fueling Light Water Reactors before the transition.},
+	language = {en},
+	urldate = {2021-12-02},
+	journal = {EPJ Nuclear Sciences \& Technologies},
+	author = {Bachmann, Amanda M. and Fairhurst-Agosta, Roberto and Richter, Zoë and Ryan, Nathan and Munk, Madicken},
+	year = {2021},
+	pages = {22},
+	annote = {Publisher: EDP Sciences},
+	file = {Full Text PDF:/home/nsryan/Zotero/storage/GWNP7M4R/Bachmann et al. - 2021 - Enrichment dynamics for advanced reactor HALEU sup.pdf:application/pdf;Snapshot:/home/nsryan/Zotero/storage/IR7RAL7F/epjn210024.html:text/html},
+}
+
+
+
+@article{huff_cyclus_intro_2016,
+	title = {Fundamental concepts in the {Cyclus} nuclear fuel cycle simulation framework},
+	volume = {94},
+	issn = {0965-9978},
+	url = {http://www.sciencedirect.com/science/article/pii/S0965997816300229},
+	doi = {10.1016/j.advengsoft.2016.01.014},
+	abstract = {As nuclear power expands, technical, economic, political, and environmental analyses of nuclear fuel cycles by simulators increase in importance. To date, however, current tools are often fleet-based rather than discrete and restrictively licensed rather than open source. Each of these choices presents a challenge to modeling fidelity, generality, efficiency, robustness, and scientific transparency. The Cyclus nuclear fuel cycle simulator framework and its modeling ecosystem incorporate modern insights from simulation science and software architecture to solve these problems so that challenges in nuclear fuel cycle analysis can be better addressed. A summary of the Cyclus fuel cycle simulator framework and its modeling ecosystem are presented. Additionally, the implementation of each is discussed in the context of motivating challenges in nuclear fuel cycle simulation. Finally, the current capabilities of Cyclus are demonstrated for both open and closed fuel cycles.},
+	language = {en},
+	urldate = {2016-02-12},
+	journal = {Advances in Engineering Software},
+	author = {Huff, Kathryn D. and Gidden, Matthew J. and Carlsen, Robert W. and Flanagan, Robert R. and McGarry, Meghan B. and Opotowsky, Arrielle C. and Schneider, Erich A. and Scopatz, Anthony M. and Wilson, Paul P. H.},
+	month = apr,
+	year = {2016},
+	keywords = {Nuclear fuel cycle, Computer Science - Mathematical Software, Computer Science - Multiagent Systems, Computer Science - Software Engineering, D.2.13, D.2.4, I.6.7, I.6.8, simulation, Simulation, nuclear engineering, agent based modeling, Object orientation, Systems analysis, Finance, and Science, Computer Science - Computational Engineering, Agent based modeling, Nuclear engineering},
+	pages = {46--59},
+}
+
+@article{Carlsen_cycamore_2014,
+	author = "Robert W. Carlsen and Matthew Gidden and Kathryn Huff and Arrielle C. Opotowsky and Olzhas Rakhimov and Anthony M. Scopatz and Paul Wilson",
+	title = "{Cycamore v1.0.0}",
+	journal = "Figshare",
+	year = "2014",
+	month = "6",
+	url = "https://figshare.com/articles/software/Cycamore_v1_0_0/1041829",
+	doi = "10.6084/m9.figshare.1041829.v1"
+	}
+
+
+@techreport{eia_monthly_energy_review_2024,
+	title = {Monthly {Energy} {Review} {September} 2024},
+	url = {https://www.eia.gov/totalenergy/Data/monthly/pdf/mer.pdf},
+	number = {DOE/EIA-0035(2024/9)},
+	urldate = {2024-10-01},
+	institution = {U.S.Energy Information Administration},
+	author = {{U.S. Energy Information Administration}},
+	month = sep,
+	year = {2024},
+	file = {Full Text:/home/nsryan/Zotero/storage/HJ493QUL/U.S. Energy Information Administration - 2024 - Monthly Energy Review September 2024.pdf:application/pdf},
+}
+
+
+
+@misc{eia_annual_outlook_canceled_2023,
+	title = {Statement on the {Annual} {Energy} {Outlook} and {EIA} plan to enhance long-term modeling capabilities},
+	url = {https://www.eia.gov/pressroom/releases/press537.php},
+	urldate = {2024-10-01},
+	journal = {EIA Press Room},
+	author = {{U.S. Energy Information Administration}},
+	month = jul,
+	year = {2023},
+	file = {U.S. Energy Information Administration - EIA - Independent Statistics and Analysis:/home/nsryan/Zotero/storage/H339PLCI/press537.html:text/html},
+}
+
+
+@article{julie_liftoff_pathways_2024,
+	title = {Pathways to {Commercial} {Liftoff}: {Advanced} {Nuclear}},
+	url = {https://liftoff.energy.gov/wp-content/uploads/2024/09/LIFTOFF_DOE_AdvNuclear-vX6.pdf},
+	abstract = {The Pathways to Commercial Liftoff reports aim to establish a common fact base with the private sector around
+the path to liftoff for critical clean energy technologies. Their goal is to catalyze more rapid and coordinated
+action across the value chain for deployment. The Nuclear Liftoff Report was published in March 2023 as a
+“living document” to be updated as the market evolved. This updated report, published September 2024, adds
+new content and refreshes original content.},
+	journal = {DOE Liftoff Report},
+	language = {en},
+	author = {{Julie Kozeracki} and {Chris Vlahoplus} and {Ken Erwin} and {Alan Propp} and {Sonali Razdan} and {Rasheed Auguste} and {Tim Stuhldreher} and {Christina Walrond} and {Melissa Bates} and {Erica Bickford} and {Andrew Foss} and {Derek Gaston} and {Cheryl Herman} and {Rory Stanley} and {Billy Valderrama} and {Katheryn Scott} and {Tomotaroh Granzier-Nakajima} and {Paul Donohoo-Vallett} and {Tom Fanning} and {Brent Dixon} and {Abdalla Abou Jaoude} and {Chris Lohse}},
+	month = sep,
+	year = {2024},
+	file = {Pathways to Commercial Liftoff Advanced Nuclear.pdf:/home/nsryan/Zotero/storage/39JBX7AI/Pathways to Commercial Liftoff Advanced Nuclear.pdf:application/pdf},
+}
+
+@techreport{gurban_hydrochemical_2001,
+	address = {Finland},
+	title = {Hydrochemical stability of groundwaters surrounding a spent nuclear fuel repository in a 100,000 year perspective},
+	url = {https://inis.iaea.org/collection/NCLCollectionStore/_Public/33/020/33020732.pdf?r=1},
+	abstract = {This report is focused on the effects of climate changes on the chemical composition
+of deep groundwaters The aim of the work has been to assess the hydrochemical stability
+at nuclear repository sites in Finland and Sweden Sites investigated by SKB and POSIVA
+have been compared The corresponding features are important in judging how sensitive
+a site might be to climatic changes Evidence for climate effects in the past on groundwater
+compositions has been reviewed, including isotopic and mineralogical data There is
+for example evidence that glacial meltwaters are currently present at repository depths
+in the Fennoscandian Shield No evidence has been found however that oxidising conditions
+have ever prevailed at depth, even if glacial meltwaters presumably had a substantial
+amount of dissolved 02 The depth distribution of different calcite types (and other
+fracture minerals) indicates stability in large-scale groundwater circulation over
+time Information on past (and future) groundwater salinities has been sought after
+in the results of hydrological numerical models for Aespoe in Sweden and Olkiluoto
+in Finland It is expected that groundwater salinities will change due to future climatic
+variations The main effects will be from shoreline movements, permafrost and continental
+ice-sheets In most sites the present reducing redox conditions will remain undisturbed
+during glacial cycles The modelling indicated that most of the SKB suitability criteria
+will be met during the life-span of the repository and the groundwater composition
+will vary within what is observed in the samples collected today at various depths
+The expected changes are therefore not judged to threaten the integrity and functioning
+of the repository The major conclusion is that despite long-term hydrodynamic changes
+hydrochemical stability is expected to dominate at repository depth (orig)},
+	language = {en},
+	number = {951-652-107-X},
+	institution = {POSIVA OY},
+	author = {Gurban, I. and Laaksoharju, M.},
+	year = {2001},
+	note = {POSIVA--01-06
+INIS Reference Number: 33020732},
+	pages = {86},
+}
+
+@techreport{hyland_post_closure_2013,
+	address = {Canada},
+	title = {Post-closure performance assessment of a deep geological repository for advanced heavy water reactor fuels},
+	abstract = {Many countries worldwide are investigating the use of advanced fuels and fuel cycles
+for purposes such as increasing the sustainability of the nuclear fuel cycle, or decreasing
+the radiological impact of used fuel One common metric used to assess the radiological
+impact to humans of fuels placed in a repository is the total radiotoxicity of the
+fuel, but this approach does not take into account how engineered and natural (ie
+rock) barriers can remove many radiotoxic nuclides from ground water before they reach
+the surface In this study we evaluate the radiotoxicity of advanced fuels in the context
+of a full repository simulation Heavy water moderated reactors, such as the CANDU®
+reactor, are well-suited to the use of advanced fuels, and the post-closure performance
+of a deep geological repository for spent natural uranium fuel from them has already
+been studied For this study, two advanced fuels of current interest were chosen: a
+TRUMOX fuel designed to recycle plutonium and minor actinides and thereby reduce the
+amount of these materials going into disposal, and a plutonium-thorium-based fuel
+whose main goal is to increase sustainability by reducing uranium consumption The
+impact of filling a deep geological repository, of identical design to that for natural
+uranium, with used fuel from these fuel cycles was analyzed It was found that the
+two advanced fuels analyzed had dose rates, to a critical group of humans living above
+the repository, which remained a factor of 170 to 340 lower than the current acceptance
+limit for releases, while being 53 (for TRUMOX) and 26 (for thorium-plutonium) times
+higher than those of natural uranium When the dose rates are normalized to total energy
+produced, the repository emissions are comparable In this case, the maximum dose rates
+were found to be 6\% lower for the TRUMOX fuel, and 16\% higher for the plutonium-thorium
+fuel, than for the used natural uranium fuel (author)},
+	author = {Hyland, B. and Edwards, G.W.R. and Kitson, C. and Chshyolkova, T.},
+	institution = "Canadian Nuclear Laboratories",
+	year = {2013},
+	note = {AECL-CW--10192-CONF-001
+INIS Reference Number: 49101296},
+	pages = {30},
+    doi = {https://doi.org/10.1080/00295450.2018.1454229},
+}
+
+@techreport{doe_transmission_planning_study_2024,
+	address = {Washington D.C. United States},
+	title = {National {Transmission} {Planning} {Study}.},
+	url = {https://www.energy.gov/gdo/national-transmission-planning-study},
+	language = {en},
+	year = {2024},
+	urldate = {2024-10-16},
+	institution = {U.S. Department of Energy},
+	author = {{U.S. Department of Energy, Grid Deployment Office}},
+	file = {National Transmission Planning Study. Chapter 6 C.pdf:/home/nsryan/Zotero/storage/BAD3H5MH/National Transmission Planning Study. Chapter 6 C.pdf:application/pdf},
+}
+
+@misc{doe_tran_announce_2024,
+	type = {Government},
+	title = {Biden-{Harris} {Administration} {Invests} \$1.5 {Billion} to {Bolster} the {Nation}'s {Electricity} {Grid} and {Deliver} {Affordable} {Electricity} to {Meet} {New} {Demands}},
+	shorttitle = {Department of {Energy}},
+	url = {https://www.energy.gov/articles/biden-harris-administration-invests-15-billion-bolster-nations-electricity-grid-and-0},
+	abstract = {With Funding from the Investing in America Agenda, DOE Announces \$1.5 Billion Transmission Investment to Improve Grid Reliability Across the Country},
+	language = {en},
+	urldate = {2024-10-16},
+	journal = {Energy.gov},
+	author = {{U.S. Department of Energy}},
+	month = oct,
+	year = {2024},
+	file = {Snapshot:/home/nsryan/Zotero/storage/5RLV8L54/biden-harris-administration-invests-15-billion-bolster-nations-electricity-grid-and-0.html:text/html},
+}
+
+@article{papadis_challenges_2020,
+	title = {Challenges in the decarbonization of the energy sector},
+	volume = {205},
+	issn = {0360-5442},
+	url = {https://www.sciencedirect.com/science/article/pii/S0360544220311324},
+	doi = {10.1016/j.energy.2020.118025},
+	abstract = {In order to limit the effects of climate change, the carbon dioxide emissions associated with the energy sector need to be reduced. Significant reductions can be achieved by using appropriate technologies and policies. In the context of recent discussions about climate change and energy transition, this article critically reviews some technologies, policies and frequently discussed solutions. The options for carbon emission reductions are grouped into (1) generation of secondary energy carriers, (2) end-use energy sectors and (3) sector interdependencies. The challenges on the way to a decarbonized energy sector are identified with respect to environmental sustainability, security of energy supply, economic stability and social aspects. A global carbon tax is the most promising instrument to accelerate the process of decarbonization. Nevertheless, this process will be very challenging for humanity due to high capital requirements, the competition among energy sectors for decarbonization options, inconsistent environmental policies and public acceptance of changes in energy use.},
+	urldate = {2024-01-17},
+	journal = {Energy},
+	author = {Papadis, Elisa and Tsatsaronis, George},
+	month = aug,
+	year = {2020},
+	keywords = {Carbon tax, CO emissions, Decarbonization, Energy sector, Renewable energy sources},
+	pages = {118025},
+	file = {ScienceDirect Snapshot:/home/nsryan/Zotero/storage/3A2PGPNA/S0360544220311324.html:text/html},
+}
+
+%%%%%%%%%%% ESOM %%%%%%%%%%%%%%%
+@article{helm_energy_2002,
+	title = {Energy policy: security of supply, sustainability and competition},
+	volume = {30},
+	issn = {0301-4215},
+	shorttitle = {Energy policy},
+	url = {https://www.sciencedirect.com/science/article/pii/S0301421501001410},
+	doi = {10.1016/S0301-4215(01)00141-0},
+	abstract = {The paper considers the main components of energy policy, in particular the challenges of network security of supply, long-term contracts and the environmental constraints. It is argued that policy should take account of multiple market failures and context dependent. Given energy liberalisation in the 1980s and 1990s, interventions based upon market-based instruments should be given greater prominence. Institutional reform to reflect the shift in focus towards investment in non-carbon technologies and the security issues associated with networks is proposed, notably the creation of an energy agency.},
+	number = {3},
+	urldate = {2024-10-17},
+	journal = {Energy Policy},
+	author = {Helm, Dieter},
+	month = feb,
+	year = {2002},
+	pages = {173--184},
+	file = {ScienceDirect Snapshot:/home/nsryan/Zotero/storage/NJPNE38G/S0301421501001410.html:text/html},
+}
+
+@book{treasury_nationalised_1967,
+	series = {C ({Series}) ({Great} {Britain}. {Parliament})},
+	title = {Nationalised {Industries}: {A} {Review} of {Economic} and {Financial} {Objectives}},
+	isbn = {978-0-10-850449-5},
+	url = {https://books.google.com/books?id=XbInAQAAMAAJ},
+	publisher = {H.M. Stationery Office},
+	author = {Treasury, Great Britain},
+	year = {1967},
+	lccn = {68082576},
+}
+
+@article{posner_fuel_1973,
+	title = {Fuel policy. {A} study in applied economics},
+	url = {https://www.osti.gov/etdeweb/biblio/5240048},
+	language = {English},
+	journal = "ETDEWEB World Energy Base",
+	urldate = {2024-10-17},
+	author = {Posner, M. V.},
+	month = jan,
+	year = {1973},
+	file = {Snapshot:/home/nsryan/Zotero/storage/UFG825XV/5240048.html:text/html},
+}
+
+@article{plazas_disrupt_2022,
+	title = {National energy system optimization modelling for decarbonization pathways analysis: {A} systematic literature review},
+	volume = {162},
+	issn = {1364-0321},
+	shorttitle = {National energy system optimization modelling for decarbonization pathways analysis},
+	url = {https://www.sciencedirect.com/science/article/pii/S1364032122003148},
+	doi = {10.1016/j.rser.2022.112406},
+	abstract = {Energy planning is fundamental to ensure a sustainable, affordable, and reliable energy mix for the future. Energy system optimization models (ESOMs) are the accurate tools to guide decision-making in national energy planning. This article presents a systematic literature review covering the main ESOMs, the input and output data involved, the trends in scenario analysis for decarbonization pathways in national economies, and the challenges associated with energy system optimization modelling. The first part introduces the characterization of ESOMs, showing a trend in modelling focused on long-term, multisector, multiperiod, bottom-up, linear programming, and perfect foresight. Secondly, the analysis shows the intensive data requirements, including future demand profiles, fuel price projections, energy potentials, and techno-economic characteristics of technologies. This review also reveals that decarbonization pathways are the principal objective in energy system optimization modelling, including key drivers such as high-share renewable energy integration, energy efficiency increase, sector coupling, and sustainable transport. The last section presents ten challenges and their corresponding opportunities in research, highlighting the improvement of spatiotemporal resolution, transparency, the inclusion of social aspects, the representation of developing country features, and quality and availability data.},
+	urldate = {2024-10-17},
+	journal = {Renewable and Sustainable Energy Reviews},
+	author = {Plazas-Niño, F. A. and Ortiz-Pimiento, N. R. and Montes-Páez, E. G.},
+	month = jul,
+	year = {2022},
+	keywords = {Decarbonization, Energy planning, Energy system, Energy transition, Modelling, Optimization},
+	pages = {112406},
+}
+
+
+@article{laha_energy_2017,
+	title = {Energy model – {A} tool for preventing energy dysfunction},
+	volume = {73},
+	issn = {1364-0321},
+	url = {https://www.sciencedirect.com/science/article/pii/S1364032117301193},
+	doi = {10.1016/j.rser.2017.01.106},
+	abstract = {Energy model, a systematic data-intensive multi-objective framework replicating the energy sector of the country or globe, constitutes of energy resource supply, energy consumption sector-by-sector, energy transformation technologies, greenhouse gas emission and energy pricing. Considering the atypical weather pattern yearly and geographical diversity, the challenges and benefits of designing an energy model have been summarized. The paper has documented the tremendous jeopardy of drastic climate change, energy crisis on the global economy, requirement for transition to low carbon economy and rural electrification which have been impetus for the evolution of legitimate energy model. Special emphasis has been provided on the types of energy models that have been developed and practiced throughout the world followed by a comparative analysis of a few. The requirement to configure a unique energy model in India followed by certain recommendations has been proposed in this paper.},
+	urldate = {2024-10-17},
+	journal = {Renewable and Sustainable Energy Reviews},
+	author = {Laha, Priyanka and Chakraborty, Basab},
+	month = jun,
+	year = {2017},
+	keywords = {Climate change, Energy crisis, Energy model, Global warming, Greenhouse gas, Low carbon economy, Renewable energy},
+	pages = {95--114},
+}
+
+
+@techreport{ipcc_ch2_2000,
+	address = {Intergovernmental Panel on Climate Change},
+	title = {Good {Practice} {Guidance} and {Uncertainty} {Management} in {National} {Greenhouse} {Gas} {Inventories}},
+	shorttitle = {Chapter 2},
+	url = {https://www.ipcc-nggip.iges.or.jp/public/gp/english/2_Energy.pdf},
+	language = {en},
+	institution = {Task Force on National Greenhouse Gas Inventorie},
+	author = {Hiraishi, Taka and Nyenzi, Buruhani and Gillet, Marc and Meijer, Jeroen and Pullus, Tinus and Simmons, Tim and Tichy, Milos and Adi, Agus Cahyono and Chandra, Monika and Emmanuel, Sal and Fontelle, Jean-Pierre and Fott, Pavel and Lamotta, Sergio and Lieberman, Elliott and Mareckova, Katarina and Amous, Samir and Olsson, Astrid and Hossain, Ijaz and Gomez, Dario and Miroslav, Markvart and Oi, Michiro and Rajarathnam, Uma and Tuhkanen, Sami and Zhang, Jim and Walsh, Michael and Mowafy, Samir and Eggleston, Simon},
+	month = may,
+	year = {2000},
+	pages = {2.8--2.91},
+	file = {Hiraishi et al. - CO-CHAIRS, EDITORS AND EXPERTS.pdf:/home/nsryan/Zotero/storage/PICV92GT/Hiraishi et al. - CO-CHAIRS, EDITORS AND EXPERTS.pdf:application/pdf},
+}
+
+
+@article{pfenninger_energy_2014,
+	title = {Energy systems modeling for twenty-first century energy challenges},
+	volume = {33},
+	issn = {1364-0321},
+	url = {https://www.sciencedirect.com/science/article/pii/S1364032114000872},
+	doi = {10.1016/j.rser.2014.02.003},
+	abstract = {Energy systems models are important methods used to generate a range of insight and analysis on the supply and demand of energy. Developed over the second half of the twentieth century, they are now seeing increased relevance in the face of stringent climate policy, energy security and economic development concerns, and increasing challenges due to the changing nature of the twenty-first century energy system. In this paper, we look particularly at models relevant to national and international energy policy, grouping them into four categories: energy systems optimization models, energy systems simulation models, power systems and electricity market models, and qualitative and mixed-methods scenarios. We examine four challenges they face and the efforts being taken to address them: (1) resolving time and space, (2) balancing uncertainty and transparency, (3) addressing the growing complexity of the energy system, and (4) integrating human behavior and social risks and opportunities. In discussing these challenges, we present possible avenues for future research and make recommendations to ensure the continued relevance for energy systems models as important sources of information for policy-making.},
+	urldate = {2024-10-18},
+	journal = {Renewable and Sustainable Energy Reviews},
+	author = {Pfenninger, Stefan and Hawkes, Adam and Keirstead, James},
+	month = may,
+	year = {2014},
+	keywords = {Complexity, Energy policy, Energy systems modeling, High-resolution modeling, Uncertainty},
+	pages = {74--86},
+	file = {ScienceDirect Snapshot:/home/nsryan/Zotero/storage/FF9BPT6U/S1364032114000872.html:text/html},
+}
+
+@article{Dotson_osier,
+	doi = {10.21105/joss.06919},
+	url = {https://doi.org/10.21105/joss.06919},
+	year = {2024},
+	publisher = {The Open Journal},
+	volume = {9},
+	number = {104},
+	pages = {6919},
+	author = {Samuel G. Dotson and Madicken Munk},
+	title = {Osier: A Python package for multi-objective energy system optimization},
+	journal = {Journal of Open Source Software}
+}
+
+%%%%%%%%%%%%% TRISO %%%%%%%%%%%%%
+
+
+@article{particle_review_2019,
+	title = {Coated particle fuel: {Historical} perspectives and current progress},
+	volume = {515},
+	issn = {0022-3115},
+	shorttitle = {Coated particle fuel},
+	url = {https://www.sciencedirect.com/science/article/pii/S0022311518310213},
+	doi = {10.1016/j.jnucmat.2018.09.044},
+	abstract = {Coated particle fuel concepts date back some 60 years, and have evolved significantly from the relatively primitive pyrocarbon-coated kernels envisioned by the first pioneers. Improvements in particle design, coating layer properties, and kernel composition have produced the modern tristructural isotropic (TRISO) particle, capable of low statistical coating failure fractions and good fission product retention under extremely severe conditions, including temperatures of 1600 °C for hundreds of hours. The fuel constitutes one of the key enabling technologies for high-temperature gas-cooled reactors, allowing coolant outlet temperatures approaching 1000 °C and contributing to enhanced reactor safety due to the hardiness of the particles. TRISO fuel development has taken place in a number of countries worldwide, and several fuel qualification programs are currently in progress. In this paper, we discuss the unique history of particle fuel development and some key technology advances, concluding with some of the latest progress in UO2 and UCO TRISO fuel qualification.},
+	urldate = {2024-10-21},
+	journal = {Journal of Nuclear Materials},
+	author = {Demkowicz, Paul A. and Liu, Bing and Hunn, John D.},
+	month = mar,
+	year = {2019},
+	keywords = {Coated particle fuel, High temperature gas cooled reactor, HTGR, TRISO, Tristructural isotropic},
+	pages = {434--450},
+}
+
+
+@article{price_dragon_2012,
+	series = {5th {International} {Topical} {Meeting} on {High} {Temperature} {Reactor} {Technology} ({HTR} 2010)},
+	title = {The {Dragon} {Project} origins, achievements and legacies},
+	volume = {251},
+	issn = {0029-5493},
+	url = {https://www.sciencedirect.com/science/article/pii/S0029549311010570},
+	doi = {10.1016/j.nucengdes.2011.12.024},
+	abstract = {The lineage of the Dragon Project can be traced back to 1955 when the United Kingdom launched a nuclear power programme which involved the construction of large graphite moderated reactors fuelled with natural uranium and cooled by carbon dioxide. Not long afterwards the European Nuclear Energy Agency (ENEA) of the then newly formed Organisation for European Economic Cooperation (OEEC), in the spirit of the time, sought to encourage the construction of nuclear power stations and the development of joint nuclear undertakings. The United Kingdom Atomic Energy Research Establishment (AERE) had, since 1949, been studying possible long term improvements in energy conversion efficiency resulting from higher coolant gas temperatures and the use of ceramic materials. A 1955 paper on gas-cooled reactors using the U-233/thorium cycle attracted interest and this progressed to the definition of an initial programme. The high temperature work led to a proposal for a 20MW(Th) Reactor Experiment and one important consequence of the ENEA/OEEC initiative was the setting up in April 1959 of the international Dragon Project Agreement. Initial experiments at Harwell in 1957 had involved the coating of small spheroidal particles of uranium carbide or oxide with pyrolytic carbon which were then bonded with carbonaceous material. But experiments demonstrated that fission products such as caesium, strontium or barium could diffuse through such coatings. This led in 1961 to the modification of the coated particle design by the addition of an intermediate layer of silicon or zirconium carbide. The small size of the particles necessitated a statistical approach to quality during manufacture and effort was concentrated on the minimisation of the broken or defective particle fraction. The subsequent operation of the Dragon Reactor for over 10 years confirmed the benign nature of a HTR. It also proved that fuel bodies made with coated particles were capable of maintaining a high degree of fission product containment at high temperatures and for high burn-ups. What is remarkable is the speed with which the particle design evolved. The success of the choices that were made resulted in the High Temperature Gas Cooled Reactor system being studied in its various forms by many countries. Irrespective of the particular core design, the basic component of HTR fuel is the coated particle. In the intervening years since the early HTRs were launched it has been realised worldwide that there are now even more factors favouring the use of high temperature reactors. They enable more efficient use of fissile isotopes as well as providing inherent reactor safety. Unlike most other reactor designs, the HTR can take economic advantage from operation at high gas outlet temperatures, whilst maintaining the good retention of fuel and fission products within the fuel elements. The fuel cycle can use uranium, thorium or plutonium. In addition the burn-up can be high, permitting safe disposal of spent fuel without the need for reprocessing. Fast reactors based on coated particle fuel may be a future possibility. The Dragon Project was a successful political collaboration and a technical triumph in demonstrating a new type of reactor. However, overstretched resources coupled with a world-wide trend in that era to favour water reactors caused work on Dragon to be terminated in March 1976. By then the main objectives for the Dragon Project had been successfully achieved and extensively reported. The progression from the 20MWE(Th) Dragon to a 1200MW(e) power station as a single jump in technology was too large a step for the time. The experiences of the other major civil HTR projects of the same period in Germany and the United States of America resulted in the high temperature reactor system being studied in its various forms by many countries as is evidenced by the large number of papers presented at the biennial HTR conferences. In the intervening years since the early HTRs were launched it has been realised that there are now even more factors favouring the use of high temperature reactors.},
+	urldate = {2024-10-21},
+	journal = {Nuclear Engineering and Design},
+	author = {Price, M. S. T.},
+	month = oct,
+	year = {2012},
+	pages = {60--68},
+	file = {ScienceDirect Snapshot:/home/nsryan/Zotero/storage/9D26MUCI/S0029549311010570.html:text/html},
+}
+
+
+@techreport{f_b_daniels_suggestions_1944,
+	address = {Chicago, IL},
+	title = {Suggestions for a {High}-{Temperature} {Pebble} {Pile}},
+	url = {https://www.osti.gov/servlets/purl/4359817},
+	abstract = {Attention is clirected inthis report to the possibility of building «
+pile of pebbles of uranium cerbide aiKl grephitej or equii-alent isateriels, which
+will operate et 1300 to 2000° C. The pile is cooled either by circulating helixua
+or boiling bisEsith. The cooling gas passes uniformly through the whole cross-
+section of the pilCj 'vhich is kept at a steady tdirgjeraturo by convection and
+redietionp Operation at a hi{\textasciicircum}h temperature simplifies the cooling ope{\textasciicircum}atioiic
+opens up the possibility of separating Pu and fission products by Yaporizationo
+end leads to greater thermodynamic efficiency in the operation of engines. Ex-
+perience goicad during the recent operation of a {\textasciicircum}as{\textasciicircum}heated pebble-{\textasciicircum}bed furnace
+blowing 2000 cu;, ft« of eir per minlite for niirogen-fixations, warrants the
+ezyjctation that there are no seriaas practical difficulties in the operation of
+such a pile at 2000° C.},
+	language = {EN},
+	urldate = {2024-10-21},
+	institution = {The University of Chicago Metallurgical Laboratory},
+	author = {{F. B. Daniels}},
+	month = oct,
+	year = {1944},
+	file = {4359817.pdf:/home/nsryan/Zotero/storage/A8SGL456/4359817.pdf:application/pdf},
+}
+
+
+@techreport{pebble_design_1958,
+	address = {New York},
+	type = {Government},
+	title = {{DESIGN} {AND} {FEASIBILITY} {STUDY} {OF} {A} {PEBBLE} {BED} {REACTOR}-{STEAM} {POWER} {PLANT}},
+	author = AEC,
+	url = {https://www.osti.gov/servlets/purl/4674654},
+	urldate = {2024-10-22},
+	institution = {Prepared for the Division of Reactor Development of the U . S. Atomic Energy Commission},
+	month = jul,
+	year = {1958},
+	file = {4674654.pdf:/home/nsryan/Zotero/storage/L7AIGWGR/4674654.pdf:application/pdf},
+}
+
+
+
+
+%%%%%%%%%%% scenarios %%%%%%%%%%%
+
+@misc{bachmann_mmr_like_2023,
+	title = {{MMR}-like {Serpent} {Model}},
+	url = {https://zenodo.org/records/8349385},
+	abstract = {A serpent model designed after the Ultra Safe Nuclear Corporation (USNC) Micro Modular Reactor (MMR) reactor design, based on publicly available information.},
+	urldate = {2024-11-01},
+	publisher = {Zenodo},
+	author = {Bachmann},
+	month = sep,
+	year = {2023},
+	doi = {10.5281/zenodo.8349385},
+	keywords = {Microreactor, Monte Carlo},
+	file = {Snapshot:/home/nsryan/Zotero/storage/YCRWG5V9/8349385.html:text/html},
+}
+
+
+@misc{xe_reactor,
+	type = {Media {Kit}},
+	title = {X-{Energy} {Media} {Kit} ({Xe}-100)},
+	url = {https://x-energy.com/media/xe-100},
+	language = {en-US},
+	urldate = {2025-01-15},
+	journal = {X-energy},
+	author = {{X-energy}},
+	year = {2024},
+	file = {Snapshot:/Users/nsryan/Zotero/storage/IB5E2YAM/xe-100.html:text/html},
+}
+
+
+@misc{xe_fuel,
+	type = {Media {Kit}},
+	title = {X-{Energy} {Media} {Kit} ({Triso}-{X})},
+	url = {https://x-energy.com/media/triso-x},
+	language = {en-US},
+	urldate = {2025-01-15},
+	journal = {X-energy},
+	author = {{X-Energy}},
+	year = {2024},
+	file = {Snapshot:/Users/nsryan/Zotero/storage/5UFZGY6Y/triso-x.html:text/html},
+}
+
+
+@article{usnc_design_2021,
+	title = {{USNC} {Micro} {Modular} {Reactor} ({MMR}™ {Block} 1) {Technical} {Information}},
+	author = {{Ultra Safe Nuclear Corporation}},
+	url = {https://www.usnc.com/assets/media-kit/[022989][01]%20MMR%20Technical%20Information%20Document.pdf?v=a7e3f7d8d5},
+	language = {en},
+	journal = {USNC},
+	year = {2021},
+	pages = {36},
+	file = {2021 - USNC Micro Modular Reactor (MMR™ Block 1) Technica.pdf:/home/nsryan/Zotero/storage/VWDW9FEY/2021 - USNC Micro Modular Reactor (MMR™ Block 1) Technica.pdf:application/pdf},
+}
+
+@misc{nuscale_chapter_2018,
+	title = {Chapter {One} {Introduction} and {General} {Description} of the {Plant}},
+	shorttitle = {{NuScale} {Final} {Safety} {Analysis} {Report}},
+	url = {https://www.nrc.gov/reactors/new-reactors/design-cert/nuscale.html},
+	abstract = {NuScale Standard Plant
+Design Certification Application},
+	publisher = {USNRC},
+	author = {NuScale},
+	month = oct,
+	year = {2018},
+	file = {ML18310A314.pdf:/home/nsryan/Zotero/storage/33IY4JXD/_.pdf:application/pdf},
+}
+
+@techreport{eia_aeo_2023,
+	type = {Government},
+	title = {Annual {Energy} {Outlook} 2023},
+	shorttitle = {{AEO2023}},
+	url = {https://www.eia.gov/outlooks/aeo/pdf/AEO2023_Narrative.pdf},
+	language = {EN},
+	urldate = {2024-10-14},
+	institution = {U.S. Energy Information Administration},
+	author = {{U.S. Energy Information Administration}},
+	month = mar,
+	year = {2023},
+	file = {AEO2023_Narrative.pdf:/home/nsryan/Zotero/storage/AN8DNMXC/AEO2023_Narrative.pdf:application/pdf},
+}
+
+@misc{richter_xe100_like,
+  author       = {Richter, Zoe},
+  title        = {Isotopic Fuel Compositions in the Sangamon200
+                   Model
+                  },
+  month        = apr,
+  year         = 2022,
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.6426312},
+  url          = {https://doi.org/10.5281/zenodo.6426312},
+}
+
+
+@misc{usnc_media_kit,
+	type = {Company},
+	title = {{USNC}: {Press} \& {News}, {Media} {Kit}},
+	url = {https://www.usnc.com/tag/news/},
+	abstract = {Reliable Zero-Carbon Energy Anywhere. Advanced nuclear developer of the Micro Modular Reactor (MMR) and other energy systems using TRISO and FCM Fuel.},
+	language = {en},
+	urldate = {2024-11-14},
+	journal = {Ultra Safe Nuclear},
+	author = {{Ultra Safe Nuclear Corporation}},
+	month = oct,
+	year = {2024},
+	file = {Snapshot:/Users/nsryan/Zotero/storage/KVXQ6XZ5/news.html:text/html},
+}
+
+
+
+@techreport{usnc_chalk_river,
+	address = {Chalk River},
+	title = {Project {Description} for the {Micro} {Modular} {Reactor}™ {Project} at {Chalk} {River}},
+	url = {https://www.usnc.com/assets/media-kit/01%20CRP-LIC-01-001%20Rev%202%20Project%20Description.pdf?v=33d7ad7f2f},
+	language = {en},
+	number = {CRP-LIC-01-001},
+	institution = {Global First Power},
+	author = {{GFP Limited}},
+	month = jul,
+	year = {2019},
+	file = {Project Description for the Micro Modular Reactor™.pdf:/Users/nsryan/Zotero/storage/QUTECSZ9/Project Description for the Micro Modular Reactor™.pdf:application/pdf},
+}
+
+@article{richter_thesis_2022,
+	title = {{ISOTOPIC} {AND} {REACTOR} {PHYSICS} {CHARACTERIZATION} {OF} {A} {GAS}-{COOLED}, {PEBBLE}-{BED} {MICROREACTOR}},
+	url = {https://etd.ideals.illinois.edu/advisor/UJZchd2AwM/file/89111/RICHTER-THESIS-2022.pdf},
+	abstract = {Pebble-bed High Temperature Gas-Cooled Reactor (HTGR) designs present a unique modeling challenge. Pebble-
+bed reactors can have a variety of pebble compositions due to varying levels of burnup. In addition, the pebbles
+are mobile in the core — entering from the top and exiting through the bottom — and may fall in a haphazard
+arrangement. This work introduces a 20 MWth pebble-bed HTGR reactor design (which will be referred to as
+Sangamon20) that is representative of current pebble bed reactors, and investigates not only the neutronics of the
+base model, but the changes to core neutronics after making modifications to the simulation. These modifications
+include: heterogenous versus homogenous pebble centers, imposing a universal symmetry assumption, and
+changing the arrangement of pebble fuel compositions, using Serpent and Python. This is in support of the ultimate
+goal of this project: to establish a baseline source term and to determine what simplifications, if any, can be made in
+the model to strike a balance between computational cost and precision of the results. This is crucial for any future
+licensing effort, safety analysis, or accident analysis involving pebble-bed reactors. The model of Sangamon20
+uses a random dispersal of seven different pebble compositions, each corresponding to a different burnup level.
+The heterogeneous tests compare ke f f ; thermal and fast flux profiles; and the neutron lethargy-adjusted energy
+spectra in the core, reflector, coolant, a random fresh, and a random discharge-burnup pebble. Shuffling and
+symmetry tests monitor changes to ke f f and the outgoing neutron current at the outer reflector boundary; the
+former because it is an important reactor physics parameter, and the latter because it can be used to find the
+anticipated neutron flux the Reactor Pressure Vessel (RPV) would experience. This informs the level of radiation
+damage one could expect the RPV to experience each year - which is useful from a design and safety perspective.
+Neither the symmetry test nor the shuffling test showed a major difference in either the ke f f or the outward neutron
+current at the outer edge of the reflector. This would suggest that there is no need to simulate all possible pebble
+placements to characterize a reactor. However, for the heterogeneous tests, ke f f differed by 4.45\%, and the pebble
+spectra at certain higher energies disagreed by a factor of 2-4. A complete fuel isotopic composition at each burnup
+step is accessible at [37]. This thesis discusses select isotopic inventories of interest. These can be used to inform
+source term determination or spent fuel compositions.},
+	language = {en},
+	author = {Richter, Zoë},
+	year = {2022},
+	file = {Richter - ISOTOPIC AND REACTOR PHYSICS CHARACTERIZATION OF A.pdf:/Users/nsryan/Zotero/storage/6MCF57B7/Richter - ISOTOPIC AND REACTOR PHYSICS CHARACTERIZATION OF A.pdf:application/pdf},
+}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% LEUP %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@article{leup_apr1400,
+title = {Load-Follow Operation in LEU+ loaded very-low soluble boron APR1400},
+journal = {Progress in Nuclear Energy},
+volume = {177},
+pages = {105415},
+year = {2024},
+issn = {0149-1970},
+doi = {https://doi.org/10.1016/j.pnucene.2024.105415},
+url = {https://www.sciencedirect.com/science/article/pii/S0149197024003652},
+author = {Husam Khalefih and Yonghee Kim},
+keywords = {PWR, APR1400, Load-Follow Operation, HALEU, Mode-K+},
+abstract = {This study explores the effectiveness of the mode-K+ strategy in managing a Very-Low Soluble Boron (VLSB) APR1400 core, loaded with LEU + fuel, and utilizing the Centrally-Shielded Burnable Absorber (CSBA) and erbia for excess reactivity control. Initially, a 24-month two-batch fuel management scheme was developed, targeting an equilibrium cycle Burnup (BU) of 26 GWD/MTU. The scheme required a maximum of ∼550 ppm Critical Boron Concentration (CBC) in the early cycle BU. Analysis of radial and axial power profiles revealed that the power peaking factors remained within acceptable limits, with values not exceeding 1.4 and 1.6 throughout the cycle, respectively. Subsequently, various Daily Load-Follow Operation (DLFO) scenarios were examined at different BU levels. These investigations demonstrated a consistent alignment between the demanded power and the reactor's power output. Furthermore, critical safety parameters, including the Axial Shape Index (ASI) and inlet coolant temperature, consistently remained within prescribed design specifications. The study's findings underscore the feasibility and reliability of implementing a VLSB APR1400 core with LEU + fuel, using mode-K+ and advanced fuel management strategies for effective power generation and safety compliance. To perform the analysis, an in-house diffusion code KANT was utilized, KANT is based on NEM-CMFD accelerated simulation tool, while the cross-section was generated via Serpent 2.2.0 assessed with ENDF VII.B data library.}
+}
+
+@article{24_month_cycle_bwr,
+title = {Design of a 24-month equilibrium cycle of a BWR with extended low enrichment fuel using metaheuristic optimization techniques},
+journal = {Annals of Nuclear Energy},
+volume = {213},
+pages = {111129},
+year = {2025},
+issn = {0306-4549},
+doi = {https://doi.org/10.1016/j.anucene.2024.111129},
+url = {https://www.sciencedirect.com/science/article/pii/S0306454924007928},
+author = {Javier López-Luna and Juan-Luis Francois and Alejandro Castillo and Juan José Ortiz-Servin},
+abstract = {To improve fuel cycle performance and economics, commercial light water reactor operators and fuel suppliers are pursuing evolutionary changes to nuclear fuel that include the use of extended low enrichment fuel (LEU + ). In this paper, the integral design of a 24-month equilibrium cycle of a 2317 MWth / 803 MWe boiling water reactor (BWR) was obtained using LEU + . The starting point was to determine the fuel batch fraction, average enrichment, and discharge burnup, through linear reactivity model and CASMO4 simulations. Subsequently, the design and optimization of the fuel bundle was carried out with a Multi-state Recurrent Neural Network. Once the fuel bundle was designed, and starting from an operating cycle of 18 months, the reloading pattern was designed for several cycles until obtaining the equilibrium cycle of 24 months, using the Tabu Search metaheuristic optimization technique and Haling simulations. Furthermore, the control rod pattern for the obtained equilibrium cycle was designed with a system based on the Tabu Search metaheuristic technique to verify that the target cycle length of 17.011 MWd/kgU was reached and that the main thermal limits: MFLPD, MAPRAT and MFCHFR were not exceeded during reactor operation. Finally, the levelized nuclear fuel cycle cost (LNFCC) of the open fuel cycle was calculated and compared with that of the 18-month cycle. The results show that the 24-month operating cycle using LEU + is feasible for the studied BWR under the main steady-state safety operating limits and with a lower levelized cost for the open fuel cycle compared to that of the 18-month cycle estimated at 7 % for the entire fuel cycle and 25.6 % for the back-end phase. Moreover, two sensitivity studies were conducted, one related to the discount rate and the other to the unit price of the enrichment separative work unit. The result is that the LNFCC difference between the 18-month and the 24-month cycles decreases as the discount rate increases, and as expected, the effect of SWU price change is presented only in the front-end, and the LNFCC increases as the SWU unit price increases, with the increase being 18.9 % higher for the 24-month cycle and 17.1 % higher for the 18-month cycle.}
+}
+
+
+@misc{nrc_catiii,
+	type = {Part {Index}},
+	title = {10 {CFR} § 70.4 {Definitions}.},
+	shorttitle = {§ 70.4 {Definitions}.},
+	url = {https://www.nrc.gov/reading-rm/doc-collections/cfr/part070/part070-0004.html},
+	abstract = {§ 70.4 Definitions.},
+	language = {en-US},
+	urldate = {2024-09-08},
+	journal = {NRC Web},
+	author = {{Nuclear Regulatory Commission}},
+	month = aug,
+	year = {2017},
+	file = {Snapshot:/Users/nsryan/Zotero/storage/Z8JXIE7W/part070-0004.html:text/html},
+}
+
+
+@misc{framatome_press_2024,
+	title = {Press {Release}: {Framatome}’s enhanced accident tolerant fuel assemblies first to complete lifecycle operations in {U}.{S}.},
+	shorttitle = {Worldwide first},
+	url = {https://www.framatome.com/medias/worldwide-first-framatomes-enhanced-accident-tolerant-fuel-assemblies-first-to-complete-lifecycle-operations-in-us/},
+	abstract = {Framatome's GAIA fuel assemblies with PROtect Enhanced Accident Tolerant Fuel technology completed their third 18-month fuel cycle at Georgia Power’s Plant},
+	language = {en-EN},
+	urldate = {2025-01-10},
+	journal = {Framatome - Espace presse},
+	author = {{Framatome}},
+	year = {2024},
+	file = {Snapshot:/Users/nsryan/Zotero/storage/GDE9HRMI/worldwide-first-framatomes-enhanced-accident-tolerant-fuel-assemblies-first-to-complete-lifecyc.html:text/html},
+}
+
+@techreport{leup_atf_storage_impacts,
+  author       = {Shaw, Alex M. and Clarity, Justin B.},
+  title        = {Impacts of LEU+ and ATF on Fresh Fuel Storage Criticality Safety},
+  institution  = {Oak Ridge National Laboratory (ORNL), Oak Ridge, TN (United States)},
+  annote       = {The use of increased fuel enrichment, which is still in the realm of low-enriched uranium (LEU) fuel, has been of interest to commercial light water reactor operators as part of the next iteration in fuel cycle technological advances and research and development. Using increased enrichment fuel, or high-assay LEU (HALEU), in power plants has clear benefits for being able to load cores with additional power-producing fuel. Although HALEU enrichments can range up to 20%, the more guarded approach of investigating enrichments above current fuels within 10% enrichment is referred to as LEU plus (LEU+) to reflect the less drastic change in operating conditions and requirements and similarity to current fuel cycles. Of additional interest and increasing maturity is the incorporation of accident-tolerant fuel (ATF) concepts, which are also applicable to the current fleet. This class of technologies involves changes such as cladding (e.g., chromium coating or FeCrAl) and fuel composition (e.g., chromia dopant) alterations to demonstrate improved fuel performance under accident scenarios. The ability to properly store fuel before and after residence time in the reactor is crucial to plant operation. Typically, this is done in either a new fuel vault (NFV) or spent fuel pool (SFP). Storing, loading, and unloading dozens of fuel assemblies within the same general area provides opportunities for obvious criticality concerns. These concerns are addressed with regulations to the subcriticality margin that the NFV and SFP must maintain in certain conditions. Adopting LEU+ fuel results in inherent reactivity increases, which are extremely relevant for safe fuel storage. Therefore, a clear understanding of the effects of LEU+ fuel and ATF on criticality safety margins to regulatory limits is required, as well as an understanding of the degree of absorber crediting under normal and accident conditions.},
+  doi          = {10.2172/1843694},
+  url          = {https://www.osti.gov/biblio/1843694},
+  place        = {United States},
+  year         = {2022},
+  month        = {02}}
