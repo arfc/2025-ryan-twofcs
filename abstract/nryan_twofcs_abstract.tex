@@ -40,7 +40,7 @@ $^{\dagger}$Scientific Computing, Reactor Analysis and Modeling Group, Oregon St
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
-In 2020, a \gls{haleu} workshop report led by Monica Regalbuto \cite{regalbuto_high_assay_2020} highlighted the unique regulatory challenges of establishing a \gls{haleu} fuel cycle in the \gls{usa}. It noted that part of enriching \gls{haleu} is first to produce \gls{leup}, defined as between 5\% and 10\% $^{235}U$ enrichment. The report notes that \gls{leup} facilities would fall under a similar category of regulations as our existing \gls{leu} fuel cycle, a significant advantage for the \gls{nrc} and the United States government. Since then, the idea has cropped up in several forums that, if a reactor could be redesigned to accommodate \gls{leup}, it could serve as a useful intermediary step to \gls{haleu}.
+In 2020, a \gls{haleu} workshop report led by Monica Regalbuto \cite{regalbuto_high_assay_2020} highlighted the unique regulatory challenges of establishing a \gls{haleu} fuel cycle in the \gls{usa}. It noted that part of enriching \gls{haleu} is first to produce \gls{leup}, defined as between 5\% and 10\% $^{235}U$ enrichment. The report notes that \gls{leup} facilities would fall under a similar category of regulations as our existing \gls{leu} fuel cycle, a significant advantage for the \gls{nrc} and the United States government. Since then, the idea has cropped up in several forums that, if a reactor could be redesigned to accommodate it, \gls{leup} could serve as a useful intermediary step to \gls{haleu}.
 
 % To enrich to up to \gls{haleu}, facilities such as TRISO-X LLC and Kairos Power Atlas Fuel Fabrication Facility must build . Thus, \gls{leup} is an attractive intermediary step for servicers wishing to minimize the size of a Category II facility (thereby reducing costs) as it is the same category we have historically licensed for \gls{leu} fuel enrichment.
 
@@ -105,11 +105,11 @@ In Table \ref{tab:deployment_schemes}, we describe the three schemes we used to 
       Greedy Deployment & Deploy the largest
       reactor first at each time step, fill in the remaining capacity with
       the next smallest, and so on. \\
-      Random Deployment & Use a date and hour as seed to sample the
-      reactors list randomly. \\
+      Random Deployment & Use the date and hour as a seed to sample the
+      reactor list randomly. \\
       Initially Random, Greedy Deployment & Randomly deploy reactors until
       a reactor bigger than the remaining capacity is proposed for each time step,
-      then fills the remaining capacity with the greedy algorithm. \\
+      then fill the remaining capacity with the greedy algorithm. \\
       \hline
   \end{tabular}
 \end{table}
