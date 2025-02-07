@@ -40,7 +40,7 @@ $^{\dagger}$Scientific Computing, Reactor Analysis and Modeling Group, Oregon St
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
-In 2020, a \gls{haleu} workshop report led by Monica Regalbuto \cite{regalbuto_high_assay_2020} highlighted the unique regulatory challenges of establishing a \gls{haleu} fuel cycle in the \gls{usa}. It noted that part of enriching \gls{haleu} is first to produce \gls{leup}, defined as between 5\% and 10\% $^{235}U$ enrichment. The report notes that \gls{leup} facilities would fall under a similar category of regulations as our existing \gls{leu} fuel cycle, a significant advantage for the \gls{nrc} and the United States government. Since then, the idea has cropped up in several forums that, if a reactor could be redesigned to accommodate it, \gls{leup} could serve as a useful intermediary step to \gls{haleu}.
+In 2020, a \gls{haleu} workshop report led by Monica Regalbuto \cite{regalbuto_high_assay_2020} highlighted the unique regulatory challenges of establishing a \gls{haleu} fuel cycle in the \gls{usa}. It noted that part of enriching \gls{haleu} is first to produce \gls{leup}, defined as between 5\% and 10\% $^{235}U$ enrichment. The report notes that \gls{leup} facilities would fall under a similar category of regulations as our existing \gls{leu} fuel cycle, allowing existing enrichment servicers to leverage their experience and infrastructure before taking on the increased regulatory burden of producing \gls{haleu}. If a reactor could be redesigned to accommodate it, using \gls{leup} could delay the demand for \gls{haleu}.
 
 % To enrich to up to \gls{haleu}, facilities such as TRISO-X LLC and Kairos Power Atlas Fuel Fabrication Facility must build . Thus, \gls{leup} is an attractive intermediary step for servicers wishing to minimize the size of a Category II facility (thereby reducing costs) as it is the same category we have historically licensed for \gls{leu} fuel enrichment.
 
@@ -48,7 +48,12 @@ In 2020, a \gls{haleu} workshop report led by Monica Regalbuto \cite{regalbuto_h
 
 % One of the primary advantages for a fuel cycle containing \gls{leup} is that the facility to produce it would fall under the same licensing category as \gls{leu} fuel. The \gls{nrc} defines a \textit{special nuclear material of low strategic significance} as meeting one of three criteria, the most notable of which for our purposes is "(3) 10,000 grams or more of uranium-235 (contained in uranium enriched above natural but less than 10 percent in the U–235 isotope)," \cite{nrc_catiii}. This facility definition is where the upper limit of the \gls{leup} range arises.
 
-In this work, we use \cyclus to model the \gls{nfc} of a fuel cycle that deploys Westinghouse AP1000s, \gls{xe}, and \gls{usnc} \gls{mmr}. After 10 years of operation with \gls{leup} fuel, the advanced reactor fleet transitions to deploying \gls{haleu} versions of the \gls{xe} and \gls{mmr}. We will evaluate the impact of this transition on the delayed \gls{swu} and mass of \gls{haleu} required to meet various demand growth scenarios.
+In this work, we use \cyclus to model the \gls{nfc} of a fuel cycle that
+deploys Westinghouse AP1000s, \gls{xe}, and \gls{usnc} \gls{mmr}. After 10
+years of operation with \gls{leup} fuel, the \gls{xe} reactors transition to
+\gls{haleu} and new \glspl{mmr} are fueled with \gls{haleu}. We will evaluate
+the impact of this transition on the delayed \gls{swu} and mass of \gls{haleu}
+required to meet various demand growth scenarios.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -56,14 +61,15 @@ In this work, we use \cyclus to model the \gls{nfc} of a fuel cycle that deploys
 
 \cyclus \cite{huff_cyclus_intro_2016} is an agent-based \gls{nfc} simulator
 that is versatile, open-source, and modular. The software achieves this
-versatility through a series of generic archetypes that are primarily
-transaction-based. Over the years, the user community and developers have
-created a litany of nuclear-specific archetypes for everything from
-proliferation assessment to fuel burnup. Many standard fuel cycle facilities
-have been implemented in the \cycamore repository \cite{Carlsen_cycamore_2014},
+versatility through a series of generic archetypes, which represent facilities
+or processes. Many standard fuel cycle facilities have
+been implemented in the \cycamore repository \cite{Carlsen_cycamore_2014},
 which holds technology-agnostic archetypes for material sources, material
 sinks, enrichment services, separations capabilities, storage services, and a
-generic reactor.
+generic reactor. Outside of \cycamore, the community has created a catalog of
+archetypes that can simulate a wide range of fuel cycle activities (e.g.,
+material diversion PYRE \cite{westphal_modeling_2019} or fuel burnup with
+OpenMCyclus \cite{openmcyclus_paper}).
 
 % \begin{figure}[!htbp]
 %   \centering
@@ -72,7 +78,7 @@ generic reactor.
 % \end{figure}
 
 \section{Scenarios}
-We will deploy reactors to meet energy demands drawn from \gls{eia} and \gls{doe} projections cited in Table \ref{tab:demand_scenarios}. The Low growth scenarios correspond to 5\%, 10\%, and 15\% increases in energy demand by 2050, and the High growth scenarios correspond to a doubling and a tripling of nuclear energy by 2050.
+We will deploy reactors to meet energy demands drawn from \gls{eia} \cite{eia_aeo_2023} and \gls{doe} projections \cite{julie_liftoff_pathways_2024}, shown in Table \ref{tab:demand_scenarios}. The low growth scenarios correspond to 5\%, 10\%, and 15\% increases in energy demand by 2050, and the high growth scenarios correspond to a doubling and a tripling of nuclear energy by 2050.
 
 \begin{table}[h]
   \centering
@@ -83,16 +89,16 @@ We will deploy reactors to meet energy demands drawn from \gls{eia} and \gls{doe
       \textbf{Demand Growth} & \textbf{Year-to-Year Increase} & \textbf{Source}\\
       \hline
       No Growth & 0\% & N/A\\
-      \multirow{3}{*}{Low Growth} & 0.17\% & \cite{eia_aeo_2023}\\
+      Low Growth & 0.17\% & \cite{eia_aeo_2023}\\
        & 0.5\% & \cite{eia_aeo_2023}\\
        & 1\% & \cite{eia_aeo_2023}\\
-       \multirow{2}{*}{High Growth} & 3.5\% & \cite{julie_liftoff_pathways_2024} \\
+      High Growth & 3.5\% & \cite{julie_liftoff_pathways_2024} \\
        & 5.6\% & \cite{julie_liftoff_pathways_2024}\\
       \hline
   \end{tabular}
 \end{table}
 
-In Table \ref{tab:deployment_schemes}, we describe the three schemes we used to deploy reactors to meet the energy demand. Through the greedy scheme, we are not attempting to capture the complexity of the deployment problem but rather to explore the implications of deploying a certain number of reactors. This random deployment is a proxy for the complexity of the real-world deployment problem; however, it does not include the nuance of how individual deployments meet an end user's needs, which will drive the strategic decisions that utilities and ratepayers behind the meter make in their reactor choices. Combining the random and greedy schemes allows us to inject some uncertainty around which reactor will be deployed at any given time while ensuring meeting the demand efficiently.
+In Table \ref{tab:deployment_schemes}, we describe the three schemes we used to deploy reactors to meet the energy demand. Through the greedy scheme, we are not attempting to capture the complexity of the problem but rather to explore the implications of deploying a minimal number of reactors to meet the demand. Contrasty, the random scheme is a proxy for the complexity of the real-world deployment problem; however, it does not include the nuance of how individual deployments meet an end user's needs, which will drive the strategic decisions that utilities and ratepayers behind the meter make in their reactor choices. Combining the random and greedy schemes allows us to inject some uncertainty around which reactor will be deployed at any given time while ensuring meeting the demand efficiently.
 
 \begin{table}[h]
   \centering
@@ -104,9 +110,9 @@ In Table \ref{tab:deployment_schemes}, we describe the three schemes we used to 
       \hline
       Greedy Deployment & Deploy the largest
       reactor first at each time step, fill in the remaining capacity with
-      the next smallest, and so on. \\
+      the next smallest, and so on. \vspace{2mm}\\
       Random Deployment & Use the date and hour as a seed to sample the
-      reactor list randomly. \\
+      reactor list randomly. \vspace{2mm}\\
       Initially Random, Greedy Deployment & Randomly deploy reactors until
       a reactor bigger than the remaining capacity is proposed for each time step,
       then fill the remaining capacity with the greedy algorithm. \\
