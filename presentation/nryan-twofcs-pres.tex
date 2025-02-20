@@ -19,6 +19,12 @@
 
 %\usepackage{bbding}
 \usepackage{amsfonts}
+% \usepackage{algorithm}
+% \usepackage[ruled]{algorithm2e}
+% \usepackage{algorithmic}
+\usepackage{algpseudocode}
+% \usepackage{algorithmic}
+% \usepackage{array}
 \usepackage{amsmath}
 \usepackage{xspace}
 \usepackage{graphicx}
@@ -26,6 +32,7 @@
 \usepackage{booktabs} % nice rules for tables
 \usepackage{microtype} % if using PDF
 \usepackage{bigints}
+\usepackage{caption}
 
 \newcommand{\units}[1] {\:\text{#1}}%
 \newcommand{\SN}{S$_N$}%{S$_\text{N}$}%{$S_N$}%
@@ -94,40 +101,40 @@
 \end{frame}
 }
 
-\section{Nuclear Fuel Cycle}
-  \begin{frame}
-      \frametitle{Generally, fuel cycles have these steps}
-      \begin{figure}[ht!]
-      \centering
-      \includegraphics[width=0.75\textwidth]{../images/nuclear_fuel_cycle.png}
-      \caption{Source: Penn State Univ. Radiation Science and Engineering Center (public domain)$^{*}$}
-      \end{figure}
-  \end{frame}
+% \section{Nuclear Fuel Cycle}
+%   \begin{frame}
+%       \frametitle{Generally, fuel cycles have these steps}
+%       \begin{figure}[ht!]
+%       \centering
+%       \includegraphics[width=0.75\textwidth]{../images/nuclear_fuel_cycle.png}
+%       \caption{Source: Penn State Univ. Radiation Science and Engineering Center (public domain)$^{*}$}
+%       \end{figure}
+%   \end{frame}
 
-  \begin{frame}
-      \frametitle{Not all fuel cycles are made equal, and we want options}
-      Concerns about economics, waste generation, proliferation risk, and sustainability motivate the need for fuel cycle options. With metrics like:
-        \begin{itemize}%[<+->]
-            \item natural resource utilization,
-            \item waste mass/volume,
-            \item special material quantities,
-            \item separative work units,
-            \item and energy production,
-        \end{itemize}
-        we can begin to evaluate the tradeoffs between fuel cycle options.
-  \end{frame}
+%   \begin{frame}
+%       \frametitle{Not all fuel cycles are made equal, and we want options}
+%       Concerns about economics, waste generation, proliferation risk, and sustainability motivate the need for fuel cycle options. With metrics like:
+%         \begin{itemize}%[<+->]
+%             \item natural resource utilization,
+%             \item waste mass/volume,
+%             \item special material quantities,
+%             \item separative work units,
+%             \item and energy production,
+%         \end{itemize}
+%         we can begin to evaluate the tradeoffs between fuel cycle options.
+%   \end{frame}
 
 \section{Fuel Cycle Modeling}
-  \begin{frame}
-    \frametitle{Big questions in fuel cycle modeling}
-    Increased computational power and advanced reactors mean more detailed fuel cycle modeling.
-    \begin{itemize}
-        \item How can we make facility models more accurate?
-        \item How can we make transaction models more detailed?
-        \item Can we implement nuclear fuel cycle codes to identify realtime diversion or diversion paths?
-        \item When do advanced reactor technologies change key metrics we use to evaluate fuel cycles?
-    \end{itemize}
-  \end{frame}
+%   \begin{frame}
+%     \frametitle{Big questions in fuel cycle modeling}
+%     Increased computational power and advanced reactors mean more detailed fuel cycle modeling.
+%     \begin{itemize}
+%         \item How can we make facility models more accurate?
+%         \item How can we make transaction models more detailed?
+%         \item Can we implement nuclear fuel cycle codes to identify realtime diversion or diversion paths?
+%         \item When do advanced reactor technologies change key metrics we use to evaluate fuel cycles?
+%     \end{itemize}
+%   \end{frame}
 
   \begin{frame}
     \frametitle{We use Cyclus to model fuel cycles}
@@ -155,13 +162,64 @@
         CNTAUR \cite{mummah_advanced_2024} and Pyre \cite{westphal_modeling_2019} format outputs in IAEA code 10 format and model real time diversion, respectively.
     \end{block}
     \begin{block}{Finding advanced reactor impacts on the fuel cycle}
-        We will talk a little about that today!
+        We will talk about that today!
     \end{block}
+  \end{frame}
+
+  \section{Deployment Schemes}
+  \begin{frame}
+    \frametitle{Greedy reactor deployment algorithm}
+    % \begin{algorithm}[H]
+      \begin{algorithmic}[1]
+        % \caption{Greedy Reactor Deployment Algorithm}
+          \State Initialize demand
+          \While{demand exists}
+              \State Select the largest reactor that does not exceed demand
+              \State Deploy reactors until the next reactor exceeds demand
+              \State Update demand
+          \EndWhile
+      \end{algorithmic}
+    % \end{algorithm}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Random reactor deployment algorithm}
+  %   \begin{algorithm}[H]
+  %     \caption{Random Reactor Deployment Algorithm}
+      \begin{algorithmic}[1]
+          \State Initialize demand
+          \While{demand exists}
+              \State Randomly deploy a reactor that does not exceed demand
+              \State Update demand
+          \EndWhile
+      \end{algorithmic}
+  %     \end{algorithm}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Random + greedy reactor deployment algorithm}
+  %     \begin{algorithm}[H]
+  %       \caption{Random + Greedy Reactor Deployment Algorithm}
+        \begin{algorithmic}[1]
+            \State Initialize demand
+            \While{demand exists}
+                \State Randomly deploy a reactor
+                \If{demand is exceeded}
+                    \State Remove last reactor
+                    \If{demand still exists}
+                        \State Select the largest reactor that does not exceed demand
+                        \State Deploy until the next reactor exceeds demand
+                        \State Update demand
+                    \EndIf
+                \EndIf
+            \EndWhile
+        \end{algorithmic}
+  %       \end{algorithm}
   \end{frame}
 
   \section{LEU+ to HALEU}
   \begin{frame}
-    \frametitle{A mildly provocative question}
+    \frametitle{What if we can't get HALEU to fuel these advanced reactors?}
     \vspace{-25pt}
     \begin{figure}
         \centering
@@ -169,7 +227,6 @@
         \caption{Source: \url{inl.gov/nuclear-reactor-sustainment-and-expanded-deployment/}}
     \end{figure}
     \vspace{-8pt}
-    What if we can't get HALEU to fuel these advanced reactors?
     Could we use LEU+ in the meantime?
   \end{frame}
 
