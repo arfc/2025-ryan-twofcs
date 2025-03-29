@@ -33,6 +33,20 @@
 \usepackage{microtype} % if using PDF
 \usepackage{bigints}
 \usepackage{caption}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+
+
+\definecolor{lightpurple}{HTML}{ECD9ED}
+\definecolor{lightgreen}{HTML}{CAE0AB}
+
+\tikzstyle{block} = [rectangle, draw, fill=lightgreen!20, text width=5em, text centered, rounded corners, node distance=4cm, minimum height=4em]
+\tikzstyle{line} = [draw, -latex']
+
+\newcommand{\cycamore}{\textsc{Cycamore}\xspace}
+\newcommand{\cyclus}{\textsc{Cyclus}\xspace}
+
 
 \newcommand{\units}[1] {\:\text{#1}}%
 \newcommand{\SN}{S$_N$}%{S$_\text{N}$}%{$S_N$}%
@@ -100,6 +114,15 @@
   \tableofcontents[currentsection]
 \end{frame}
 }
+\begin{frame}
+  \frametitle{Know how to code?}
+  Consider volunteering in lessons or mentoring in the Computational Resource Access NEtwork (CRANE) so we can support more students!
+  \begin{figure}
+      \centering
+      \includegraphics[width=0.65\textwidth]{../images/CRANE_logo_inverted.png}
+  \end{figure}
+  Go to our website: \url{https://www.cranephysics.org}
+\end{frame}
 
 % \section{Nuclear Fuel Cycle}
 %   \begin{frame}
@@ -165,18 +188,18 @@
   \end{frame}
 
   \begin{frame}
-    \frametitle{Cyclus is being used to tackle big questions in fuel cycle modeling}
-    \begin{block}{Making facility models more accurate}
-        OpenMCyclus \cite{openmcyclus_paper} couples Cyclus with OpenMC to model realtime depletion.
-    \end{block}
-    \begin{block}{Making transaction models more detailed}
-        There is active work to incorporate realistic purchasing agreements and market models into Cyclus.
-    \end{block}
-    \begin{block}{Identifying realtime diversion or diversion paths}
+    \frametitle{\cyclus is being used to tackle big questions.}
+    \begin{block}{Transaction Models.}
+        There is active work to incorporate realistic purchasing agreements and market models into \cyclus.
+    \end{block} \pause
+    \begin{block}{Nonproliferation and Safeguards.}
         CNTAUR \cite{mummah_advanced_2024} and Pyre \cite{westphal_modeling_2019} format outputs in IAEA code 10 format and model real time diversion, respectively.
-    \end{block}
-    \begin{block}{Finding advanced reactor impacts on the fuel cycle}
-        We will talk about that today!
+    \end{block} \pause
+    \begin{block}{Facility Models.}
+      OpenMCyclus \cite{openmcyclus_paper} couples \cyclus with OpenMC to model realtime depletion. The \gls{dpr} and \gls{tod} reactor, which introduce dynamic parameters and change how the facilities interact with time.
+  \end{block} \pause
+    \begin{block}{Transition Scenarios.}
+        We will talk about this in the context of advanced reactors.
     \end{block}
   \end{frame}
 
@@ -233,15 +256,13 @@
 
   \section{LEU+ to HALEU}
   \begin{frame}
-    \frametitle{What if we can't get HALEU to fuel these advanced reactors?}
-    \vspace{-25pt}
+    \frametitle{What are our options if we can't get HALEU fuel?}
     \begin{figure}
         \centering
-        \includegraphics[width=0.98\textwidth]{../images/reactor_timeline.png}
-        \caption{Source: \url{inl.gov/nuclear-reactor-sustainment-and-expanded-deployment/}}
+        \includegraphics[width=0.86\textwidth]{../images/reactor_timeline.png}
+        \caption{Advanced reactor demonstration and deployment projects \cite{inl_reactor_timeline}.}
     \end{figure}
-    \vspace{-8pt}
-    Could we use LEU+ in the meantime?
+    Could we use \gls{leup} while HALEU supply chains develop?
   \end{frame}
 
   \begin{frame}
@@ -292,7 +313,7 @@
 
   \section{Conclusion}
   \begin{frame}
-      \frametitle{Fuel cycles modeling is useful for enegy planning and safeguards}
+      \frametitle{This transition is an upperbound on the amount of HALEU we could defer.}
       We have covered a tiny fraction of what fuel cycle modeling can do, but there is so much more to do. In our simple case, we transition from LEU+ to HALEU after 10 years of operation.
       \begin{itemize}
           \item For the Xe100 reactors, we need almost 315 less tons of HALEU.
@@ -315,17 +336,7 @@
 
 \end{frame}
 
-\appendix
-
-\begin{frame}
-    \frametitle{Know how to code?}
-    Consider volunteering as a TA or mentor in the Computational Resource Access NEtwork (CRANE) so we can support more students!
-    \begin{figure}
-        \centering
-        \includegraphics[width=0.7\textwidth]{../images/CRANE_logo_inverted.png}
-    \end{figure}
-    Go to our website: \url{https://www.cranephysics.org}
-\end{frame}
+% \appendix
 
 %%--------------------------------%%
 
