@@ -136,18 +136,32 @@
 %     \end{itemize}
 %   \end{frame}
 
-  \begin{frame}
-    \frametitle{We use Cyclus to model fuel cycles}
-    \vspace{20pt}
-    Cyclus is an open-source agent-based fuel cycle code allowing for detailed facility and transaction modeling \cite{huff_fundamental_2016}.
-    \vspace{20pt}
-    \begin{figure}
-        \centering
-        \includegraphics[width=0.45\textwidth]{../images/cyclus_logo.png}
-    \end{figure}
+\begin{frame}
+  \frametitle{We use \cyclus to model fuel cycles.}
+  \vspace{10pt}
+  \cyclus is an open-source agent-based fuel cycle code allowing for detailed facility and transaction modeling \cite{huff_fundamental_2016}.
+  % \vspace{10pt}
+  \begin{center}
+  \begin{tikzpicture}
+      % Main rectangle
+      \draw[thick, fill=lightpurple] (0,0) -- (1,1.5) -- (7, 1.5) -- (8,0) -- (8,3) -- (0,3) -- (0,0);
+      \node at (4,2) {\textbf{Cyclus Kernel}};
 
-    \vspace{37pt}
-    Source: \url{https://github.com/cyclus/cyclus.github.com/blob/source/source/logos/logo2_transp.png}
+      % Trapezoid cut-out at the bottom
+      \draw[thick, fill=lightgreen] (0,-0.5) -- (1,1) -- (7,1) -- (8,-0.5) -- (6.75, -0.5) -- (6, 0.4) -- (5.25, -0.5) -- (4.75, -0.5) -- (4.75, 0.4) -- (3.25, 0.4) -- (3.25, -0.5) -- (2.75, -0.5) -- (2.75, 0.0) -- (2, 0.4) -- (1.25, 0.0) -- (1.25, -0.5) -- cycle;
+      \node at (4,0.7) {\textbf{Agent API}};
+      \node at (2, -0.75) {\textbf{Regions}};
+      % \node at (2, -1.1) {\textbf{API}};
+
+      \node at (4, -0.75) {\textbf{Institutions}};
+      % \node at (4, -1.1) {\textbf{API}};
+
+      \node at (6, -0.75) {\textbf{Facilities}};
+      % \node at (6, -1.1) {\textbf{API}};
+    \end{tikzpicture}
+  \end{center} \pause
+
+  The \cyclus ecosystem has many \textit{archetypes}, or generic facility models, (like the \cycamore Reactor) that can be used to model different fuel cycle facilities.
   \end{frame}
 
   \begin{frame}
