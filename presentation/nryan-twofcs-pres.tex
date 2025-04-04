@@ -35,14 +35,18 @@
 \usepackage{caption}
 \usepackage{xcolor}
 \usepackage{tikz}
-\usetikzlibrary{shapes,arrows}
+\usetikzlibrary{positioning, arrows, decorations, shapes, angles, quotes}
 
+
+\tikzstyle{line} = [draw, -latex']
 
 \definecolor{lightpurple}{HTML}{ECD9ED}
 \definecolor{lightgreen}{HTML}{CAE0AB}
+\definecolor{lightblue}{HTML}{6D9EEB}
 
-\tikzstyle{block} = [rectangle, draw, fill=lightgreen!20, text width=5em, text centered, rounded corners, node distance=4cm, minimum height=4em]
-\tikzstyle{line} = [draw, -latex']
+
+\tikzstyle{block} = [rectangle, draw, fill=lightgreen!20,
+    text width=9em, text centered, rounded corners, minimum height=3em]
 
 \newcommand{\cycamore}{\textsc{Cycamore}\xspace}
 \newcommand{\cyclus}{\textsc{Cyclus}\xspace}
@@ -55,6 +59,7 @@
 \DeclareMathOperator{\erfc}{erfc}
 %Those icons in the references are terrible looking
 \setbeamertemplate{bibliography item}[text]
+
 
 %%%% Acronym support
 
@@ -81,8 +86,10 @@
 %   \vskip0pt%
 % }
 % \makeatletter
+
 \setbeamertemplate{caption}{\raggedright\insertcaption\par}
 \setbeamertemplate{page number in head/foot}[appendixframenumber]
+\setbeamertemplate{caption}[numbered]
 
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -182,7 +189,7 @@
       \node at (6, -0.75) {\textbf{Facilities}};
       % \node at (6, -1.1) {\textbf{API}};
     \end{tikzpicture}
-  \end{center} \pause
+  \end{center} % \pause
 
   The \cyclus ecosystem has many \textit{archetypes}, or generic facility models, (like the \cycamore Reactor) that can be used to model different fuel cycle facilities.
   \end{frame}
@@ -191,13 +198,13 @@
     \frametitle{\cyclus is being used to tackle big questions.}
     \begin{block}{Transaction Models.}
         There is active work to incorporate realistic purchasing agreements and market models into \cyclus.
-    \end{block} \pause
+    \end{block} % \pause
     \begin{block}{Nonproliferation and Safeguards.}
         CNTAUR \cite{mummah_advanced_2024} and Pyre \cite{westphal_modeling_2019} format outputs in IAEA code 10 format and model real time diversion, respectively.
-    \end{block} \pause
+    \end{block} % \pause
     \begin{block}{Facility Models.}
       OpenMCyclus \cite{openmcyclus_paper} couples \cyclus with OpenMC to model realtime depletion. The \gls{dpr} and \gls{tod} reactor, which introduce dynamic parameters and change how the facilities interact with time.
-  \end{block} \pause
+  \end{block} % \pause
     \begin{block}{Transition Scenarios.}
         We will talk about this in the context of advanced reactors.
     \end{block}
@@ -206,57 +213,123 @@
   \section{Deployment Schemes}
   \begin{frame}
     \frametitle{Greedy reactor deployment algorithm}
-    % \begin{algorithm}[H]
-      \begin{algorithmic}[1]
-        % \caption{Greedy Reactor Deployment Algorithm}
-          \State Initialize demand
-          \While{demand exists}
-              \State Select the largest reactor that does not exceed demand
-              \State Deploy reactors until the next reactor exceeds demand
-              \State Update demand
-          \EndWhile
-      \end{algorithmic}
-    % \end{algorithm}
+    % % \begin{algorithm}[H]
+    %   \begin{algorithmic}[1]
+    %     % \caption{Greedy Reactor Deployment Algorithm}
+    %       \State Initialize demand
+    %       \While{demand exists}
+    %           \State Select the largest reactor that does not exceed demand
+    %           \State Deploy reactors until the next reactor exceeds demand
+    %           \State Update demand
+    %       \EndWhile
+    %   \end{algorithmic}
+    % % \end{algorithm}
+    \begin{figure}[H]
+      \centering
+      \begin{tikzpicture}[node distance = 2cm, auto]
+        % Place nodes
+        \node [block] (init) {\textbf{Initialize demand.}};
+        \node [block, below of=init] (check) {\textbf{Is there demand?}};
+        \node [block, below of=check, node distance=2.25cm] (evaluate) {\textbf{Deploy the largest capacity reactor below demand.}};
+        \node [block, right of=evaluate, node distance=4cm] (update) {\textbf{Update demand.}};
+        \node [block, left of=check, node distance=4cm] (stop) {\textbf{Next time step.}};
+        % Draw edges
+        \path [line, line width=0.6mm] (init) -- (check);
+        \path [line, line width=0.6mm] (check) -- node {\textbf{Yes}} (evaluate);
+        \path [line, line width=0.6mm] (evaluate) -- (update);
+        \path [line, line width=0.6mm] (check) -- node {\textbf{No}}(stop);
+        \draw[->, line width=0.6mm] (update) edge[bend right=45] node[right]{} (check);
+      \end{tikzpicture}
+      \caption{The greedy deployment diagram demonstrates a preference for the larger power capacity reactors, and shows how the scheme could under-deploy if the remaining capacity is less than the size of the smallest reactor.}
+      \label{fig:greedy_diagram}
+    \end{figure}
   \end{frame}
 
   \begin{frame}
     \frametitle{Random reactor deployment algorithm}
-  %   \begin{algorithm}[H]
-  %     \caption{Random Reactor Deployment Algorithm}
-      \begin{algorithmic}[1]
-          \State Initialize demand
-          \While{demand exists}
-              \State Randomly deploy a reactor that does not exceed demand
-              \State Update demand
-          \EndWhile
-      \end{algorithmic}
-  %     \end{algorithm}
+  % %   \begin{algorithm}[H]
+  % %     \caption{Random Reactor Deployment Algorithm}
+  %     \begin{algorithmic}[1]
+  %         \State Initialize demand
+  %         \While{demand exists}
+  %             \State Randomly deploy a reactor that does not exceed demand
+  %             \State Update demand
+  %         \EndWhile
+  %     \end{algorithmic}
+  % %     \end{algorithm}
+  \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[node distance = 2cm, auto]
+      % Place nodes
+      \node [block] (init) {\textbf{Initialize demand.}};
+      \node [block, below of=init] (check) {\textbf{Is there demand?}};
+      \path [line, line width=0.6mm] (init) -- (check); % \pause
+
+      \node [block, below of=check, node distance=2cm] (evaluate) {\textbf{Randomly deploy one reactor.}};
+      \path [line, line width=0.6mm] (check) -- node {\textbf{Yes}} (evaluate); % \pause
+
+      \node [block, right of=evaluate, node distance = 4cm] (update) {\textbf{Update demand.}};
+      \path [line, line width=0.6mm] (evaluate) -- (update); % \pause
+
+      \draw[->, line width=0.6mm] (update) edge[bend right=35] node[right]{} (check); % \pause
+
+      \node [block, left of=check, node distance=4cm] (stop) {\textbf{Next time step.}};
+      \path [line, line width=0.6mm] (check) -- node {\textbf{No}}(stop);
+    \end{tikzpicture}
+    \caption{Random reactor deployment diagram. This algorithm randomly deploys reactors until the demand is met. If a reactor is deployed that exceeds the demand, it will simply be removed and the algorithm will try again.}
+    \label{fig:random_diagram}
+  \end{figure}
   \end{frame}
 
   \begin{frame}
     \frametitle{Random + greedy reactor deployment algorithm}
-  %     \begin{algorithm}[H]
-  %       \caption{Random + Greedy Reactor Deployment Algorithm}
-        \begin{algorithmic}[1]
-            \State Initialize demand
-            \While{demand exists}
-                \State Randomly deploy a reactor
-                \If{demand is exceeded}
-                    \State Remove last reactor
-                    \If{demand still exists}
-                        \State Select the largest reactor that does not exceed demand
-                        \State Deploy until the next reactor exceeds demand
-                        \State Update demand
-                    \EndIf
-                \EndIf
-            \EndWhile
-        \end{algorithmic}
-  %       \end{algorithm}
+  % %     \begin{algorithm}[H]
+  % %       \caption{Random + Greedy Reactor Deployment Algorithm}
+  %       \begin{algorithmic}[1]
+  %           \State Initialize demand
+  %           \While{demand exists}
+  %               \State Randomly deploy a reactor
+  %               \If{demand is exceeded}
+  %                   \State Remove last reactor
+  %                   \If{demand still exists}
+  %                       \State Select the largest reactor that does not exceed demand
+  %                       \State Deploy until the next reactor exceeds demand
+  %                       \State Update demand
+  %                   \EndIf
+  %               \EndIf
+  %           \EndWhile
+  %       \end{algorithmic}
+  % %       \end{algorithm}
+  \begin{figure}
+    \begin{tikzpicture}[node distance = 2cm, auto]
+      % Place random nodes
+      \node [block] (init) {\textbf{Initialize demand.}};
+      \node [block, below of=init, node distance=2cm] (evaluate) {\textbf{Randomly deploy a reactor.}};
+      \node [block, right of=evaluate, node distance=3.5cm] (update) {\textbf{Does this reactor exceed demand?}};
+      % Place greedy nodes
+      \node [block, right of=update, node distance=3.8cm] (checkg) {\textbf{Is there demand?}};
+      \node [block, below of=checkg, node distance=2cm] (updateg) {\textbf{Update demand.}};
+      \node [block, left of=updateg, node distance=3.5cm] (evaluateg) {\textbf{Deploy the largest capacity reactor below demand.}};
+      \node [block, above of=checkg, node distance=1.8cm] (stopg) {\textbf{Next time step.}};
+      % Draw edges
+      \path [line, line width=0.6mm] (init) -- (evaluate);
+      \path [line, line width=0.6mm] (evaluate) -- (update);
+      \draw[->, line width=0.6mm] (update) -- node[above]{\textbf{Yes}}(checkg);
+      \draw[->, line width=0.6mm] (update) edge[bend right=40] node[above]{\textbf{No}} (evaluate);
+      % Draw greedy edges
+      \path [line, line width=0.6mm] (checkg) -- node {\textbf{Yes}} (evaluateg);
+      \path [line, line width=0.6mm] (evaluateg) -- (updateg);
+      \path [line, line width=0.6mm] (checkg) -- node[left] {\textbf{No}}(stopg);
+      \draw[->, line width=0.6mm] (updateg) edge[bend right=75] node[right]{} (checkg);
+  \end{tikzpicture}
+  \caption{Random + Greedy deployment diagram. This algorithm first attempts to randomly deploy a reactor, and if that reactor exceeds demand, it will remove the last reactor and then use the greedy approach to fill in the remaining demand.}
+  \label{fig:random_greedy_diagram}
+  \end{figure}
   \end{frame}
 
   \section{LEU+ to HALEU}
   \begin{frame}
-    \frametitle{What are our options if we can't get HALEU fuel?}
+    \frametitle{What are our options if we cannot get HALEU fuel?}
     \begin{figure}
         \centering
         \includegraphics[width=0.86\textwidth]{../images/reactor_timeline.png}
