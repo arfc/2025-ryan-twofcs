@@ -231,11 +231,11 @@
         \node [block] (init) {\textbf{Initialize demand.}};
         \node [block, below of=init] (check) {\textbf{Is there demand?}};
         \node [block, below of=check, node distance=2.25cm] (evaluate) {\textbf{Deploy the largest capacity reactor below demand.}};
-        \node [block, right of=evaluate, node distance=4cm] (update) {\textbf{Update demand.}};
-        \node [block, left of=check, node distance=4cm] (stop) {\textbf{Next time step.}};
         % Draw edges
         \path [line, line width=0.6mm] (init) -- (check);
-        \path [line, line width=0.6mm] (check) -- node {\textbf{Yes}} (evaluate);
+        \path [line, line width=0.6mm] (check) -- node {\textbf{Yes}} (evaluate); % \pause
+        \node [block, right of=evaluate, node distance=4cm] (update) {\textbf{Update demand.}};
+        \node [block, left of=check, node distance=4cm] (stop) {\textbf{Next time step.}};
         \path [line, line width=0.6mm] (evaluate) -- (update);
         \path [line, line width=0.6mm] (check) -- node {\textbf{No}}(stop);
         \draw[->, line width=0.6mm] (update) edge[bend right=45] node[right]{} (check);
