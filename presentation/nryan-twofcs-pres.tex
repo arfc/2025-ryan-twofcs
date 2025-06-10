@@ -11,11 +11,13 @@
 %\subtitle[short subtitle]{long subtitle}
 \subtitle[Short SubTitle]{TWOFCS 2025}
 %\author[short name]{long name}
-\author[Nathan Ryan]{Nathan Ryan\\Advanced Reactors and Fuel Cycles}
+\author[Nathan Ryan]{Nathan S. Ryan$^{*}$, Kathryn D. Huff$^{*}$, Madicken Munk$^{*, \dagger}$}
+
 %\date[short date]{long date}
-\date[06.2025]{June 2025}
+\date[06.11.2025]{June 11, 2025}
 %\institution[short name]{long name}
-\institute[UIUC]{University of Illinois Urbana-Champaign}
+\institute[UIUC]{$^{*}$Advanced Reactors and Fuel Cycles Group, University of Illinois Urbana-Champaign\\
+$^{\dagger}$Scientific Computing, Reactor Analysis and Modeling Group, Oregon State University}
 
 %\usepackage{bbding}
 \usepackage{amsfonts}
@@ -154,7 +156,7 @@
 %         we can begin to evaluate the tradeoffs between fuel cycle options.
 %   \end{frame}
 
-\section{Fuel Cycle Modeling}
+\section{Background}
 %   \begin{frame}
 %     \frametitle{Big questions in fuel cycle modeling}
 %     Increased computational power and advanced reactors mean more detailed fuel cycle modeling.
@@ -195,20 +197,52 @@
   \end{frame}
 
   \begin{frame}
-    \frametitle{\cyclus is being used to tackle big questions.}
-    \begin{block}{Transaction Models.}
-        There is active work to incorporate realistic purchasing agreements and market models into \cyclus.
-    \end{block} % \pause
-    \begin{block}{Nonproliferation and Safeguards.}
-        CNTAUR \cite{mummah_advanced_2024} and Pyre \cite{westphal_modeling_2019} format outputs in IAEA code 10 format and model real time diversion, respectively.
-    \end{block} % \pause
-    \begin{block}{Facility Models.}
-      OpenMCyclus \cite{openmcyclus_paper} couples \cyclus with OpenMC to model realtime depletion. The \gls{dpr} and \gls{tod} reactor, which introduce dynamic parameters and change how the facilities interact with time.
-  \end{block} % \pause
-    \begin{block}{Transition Scenarios.}
-        We will talk about this in the context of advanced reactors.
-    \end{block}
+    \frametitle{What are our options if we cannot get HALEU fuel?}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.86\textwidth]{../images/reactor_timeline.png}
+        \caption{Advanced reactor demonstration and deployment projects \cite{inl_reactor_timeline}.}
+    \end{figure}
+    Could we use \gls{leup} while HALEU supply chains develop?
   \end{frame}
+
+  \begin{frame}
+    \frametitle{We simulate a 3-reactor-model transition for 2030-2100}
+    \begin{table}[H]
+      \centering
+      \caption{Advanced reactor design specifications.}
+      \label{tab:ar_defs}
+      \begin{tabular}{l l l l}
+         \hline
+         \textbf{Design Criterion} & \textbf{MMR} \cite{usnc_design_2021} & \textbf{Xe-100} \cite{nuscale_chapter_2018} & \textbf{AP1000} \\
+         \hline
+         Reactor Type & HTGR & HTGR & PWR \\
+         Power Output [MWe] & 15 & 100 & 1000 \\
+         Fuel Type & TRISO & TRISO & UO$_2$ \\
+         Enrichment [\% $^{235}$U] & 9.95, 19.75 & 9.95, 15.5 & 5 \\
+         Cycle Length & 20 [yrs] & Online Refuel & 18 [mo] \\
+         Final Burnup [GWd/MTU] & 82 & 168 & 65 \\
+         Reactor Lifetime [yrs] & 20 & 60 & 60 \\
+         \hline
+      \end{tabular}
+   \end{table}
+  \end{frame}
+
+  % \begin{frame}
+  %   \frametitle{\cyclus is being used to tackle big questions.}
+  %   \begin{block}{Transaction Models.}
+  %       There is active work to incorporate realistic purchasing agreements and market models into \cyclus.
+  %   \end{block} % \pause
+  %   \begin{block}{Nonproliferation and Safeguards.}
+  %       CNTAUR \cite{mummah_advanced_2024} and Pyre \cite{westphal_modeling_2019} format outputs in IAEA code 10 format and model real time diversion, respectively.
+  %   \end{block} % \pause
+  %   \begin{block}{Facility Models.}
+  %     OpenMCyclus \cite{openmcyclus_paper} couples \cyclus with OpenMC to model realtime depletion. The \gls{dpr} and \gls{tod} reactor, which introduce dynamic parameters and change how the facilities interact with time.
+  % \end{block} % \pause
+  %   \begin{block}{Transition Scenarios.}
+  %       We will talk about this in the context of advanced reactors.
+  %   \end{block}
+  % \end{frame}
 
   \section{Deployment Schemes}
   \begin{frame}
@@ -328,17 +362,112 @@
   \end{frame}
 
   \section{LEU+ to HALEU}
+
   \begin{frame}
-    \frametitle{What are our options if we cannot get HALEU fuel?}
-    \begin{figure}
-        \centering
-        \includegraphics[width=0.86\textwidth]{../images/reactor_timeline.png}
-        \caption{Advanced reactor demonstration and deployment projects \cite{inl_reactor_timeline}.}
-    \end{figure}
-    Could we use \gls{leup} while HALEU supply chains develop?
+    \frametitle{Our demand for energy is going up}
+    \begin{columns}
+      \column{0.35\textwidth}
+        We will compare each deployment algorithm with a demand growth scenario that:
+        \begin{itemize}[<+->]
+          \item doubles nuclear capacity by 2050,
+          \item starts deploying the advanced reactors in 2030,
+          \item and uses LEU+ from 2030-2040.
+        \end{itemize}
+      \column{0.65\textwidth}
+        \begin{figure}
+          \centering
+          \includegraphics[width=\textwidth]{../images/new_capacity_ng_d2.pdf}
+          \caption{Nuclear electricity capacity to present day with projection of doubling nuclear by 2050 from DOE Liftoff Report \cite{julie_liftoff_pathways_2024}.}
+        \end{figure}
+    \end{columns}
   \end{frame}
 
   \begin{frame}
+    \frametitle{The difference is on the order of hundreds of tons}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.75\textwidth]{../images/diff_scheme.pdf}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Across reactor}
+    \begin{figure}
+      \centering
+      \includegraphics[width=0.85\textwidth]{../images/diff_reactor_fuel.pdf}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Compare to a scenario without LEUP}
+    \begin{columns}
+      \begin{column}{0.5\textwidth}
+        \begin{figure}
+          \centering
+          \includegraphics[width=\textwidth]{../images/final_cumulative_fuel_of.pdf}
+          \caption{No-LEUP scenario.}
+        \end{figure}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+        \begin{figure}
+          \centering
+          \includegraphics[width=\textwidth]{../images/final_cumulative_fuel_mf.pdf}
+          \caption{LEUP to HALEU scenario.}
+        \end{figure}
+      \end{column}
+    \end{columns}
+  \end{frame}
+
+
+  \section{Conclusion}
+  \begin{frame}
+      \frametitle{This is an upperbound on the amount of HALEU we could defer.}
+      In our simple case, we transition from LEU+ to HALEU after 10 years of operation with no learning curve.
+      \begin{itemize}
+          \item For the Xe100 reactors, we need almost 315 less tons of HALEU.
+          \item For the MMR reactors, we need almost 97 less tons of HALEU.
+      \end{itemize}
+      Next we need to characterize what the cost of this transition would be.
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Future work}
+    We are interested in:
+    \begin{itemize}
+      \item adapting neutronics models of the MMR and Xe-100 to be fueled with LEU+,
+      \item investigating the impact of learning curves instead of a ready deployment on the results over time,
+      \item and comparing these results with a triple-by-2050 scenario (also proposed in the Liftoff Report \cite{julie_liftoff_pathways_2024}.)
+    \end{itemize}
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{Acknowledgement}
+      % This research was performed, in part, using funding received from the DOE
+      % Office of Nuclear Energy's Nuclear Energy University Program (Project 23-29656
+      % DE-NE0009390) 'Illuminating Emerging Supply Chain and Waste Management
+      % Challenges'.
+
+
+      Thanks to Luke Seifert for his help with running the neutronics models, and thanks to Amanda Bachmann and Zoe Richter for letting me adapt their reactor models for the MMR and Xe100.
+
+      \vspace{7mm}
+      As always, thanks to my advisors Madicken Munk and Katy Huff for their support throughout my studies.
+  \end{frame}
+
+
+%%--------------------------------%%
+%%--------------------------------%%
+\begin{frame}[allowframebreaks]
+  \frametitle{References}
+  \bibliographystyle{IEEEtran}
+  {\footnotesize \bibliography{../bibliography.bib} }
+
+\end{frame}
+
+\appendix
+
+ \begin{frame}
     \frametitle{We define the enrichment levels as...}
     \begin{table}[H]
         \centering
@@ -360,58 +489,21 @@
      These are a mash-up of economic and regulatory definitions.
   \end{frame}
 
-  \begin{frame}
-    \frametitle{Our demand for energy is going up}
-    \begin{figure}
-        \centering
-        \includegraphics[width=0.85\textwidth]{../images/new_capacity_ng_d2.pdf}
-    \end{figure}
-  \end{frame}
-
-  \begin{frame}
-    \frametitle{Staggering enrichment could give the supply chain time to develop}
-    \begin{figure}
-        \centering
-        \includegraphics[width=0.75\textwidth]{../images/fresh_fuel.pdf}
-    \end{figure}
-  \end{frame}
-
-  \begin{frame}
-    \frametitle{The difference is on the order of hundreds of tons}
-    \begin{figure}
-        \centering
-        \includegraphics[width=0.75\textwidth]{../images/fresh_fuel_difference.pdf}
-    \end{figure}
-  \end{frame}
-
-
-  \section{Conclusion}
-  \begin{frame}
-      \frametitle{This transition is an upperbound on the amount of HALEU we could defer.}
-      We have covered a tiny fraction of what fuel cycle modeling can do, but there is so much more to do. In our simple case, we transition from LEU+ to HALEU after 10 years of operation.
-      \begin{itemize}
-          \item For the Xe100 reactors, we need almost 315 less tons of HALEU.
-          \item For the MMR reactors, we need almost 97 less tons of HALEU.
-      \end{itemize}
-      Next we need to characterize what the cost of this transition would be.
-  \end{frame}
-
-
-\input{acks}
-
-
-
-%%--------------------------------%%
-%%--------------------------------%%
-\begin{frame}[allowframebreaks]
-  \frametitle{References}
-  \bibliographystyle{plain}
-  {\footnotesize \bibliography{../bibliography.bib} }
-
+\begin{frame}
+  \frametitle{Staggering enrichment could give the supply chain time to form}
+  \begin{figure}
+      \centering
+      \includegraphics[width=0.85\textwidth]{../images/total_fuel_over_time.pdf}
+  \end{figure}
 \end{frame}
 
-% \appendix
-
+\begin{frame}
+  \frametitle{The differences between LEU demand are small in kt}
+  \begin{figure}
+      \centering
+      \includegraphics[width=0.85\textwidth]{../images/total_leu_over_time.pdf}
+  \end{figure}
+\end{frame}
 %%--------------------------------%%
 
 
