@@ -168,34 +168,6 @@ $^{\dagger}$Scientific Computing, Reactor Analysis and Modeling Group, Oregon St
 %     \end{itemize}
 %   \end{frame}
 
-\begin{frame}
-  \frametitle{We use \cyclus to model fuel cycles.}
-  \vspace{10pt}
-  \cyclus is an open-source agent-based fuel cycle code allowing for detailed facility and transaction modeling \cite{huff_fundamental_2016}.
-  % \vspace{10pt}
-  \begin{center}
-  \begin{tikzpicture}
-      % Main rectangle
-      \draw[thick, fill=lightpurple] (0,0) -- (1,1.5) -- (7, 1.5) -- (8,0) -- (8,3) -- (0,3) -- (0,0);
-      \node at (4,2) {\textbf{Cyclus Kernel}};
-
-      % Trapezoid cut-out at the bottom
-      \draw[thick, fill=lightgreen] (0,-0.5) -- (1,1) -- (7,1) -- (8,-0.5) -- (6.75, -0.5) -- (6, 0.4) -- (5.25, -0.5) -- (4.75, -0.5) -- (4.75, 0.4) -- (3.25, 0.4) -- (3.25, -0.5) -- (2.75, -0.5) -- (2.75, 0.0) -- (2, 0.4) -- (1.25, 0.0) -- (1.25, -0.5) -- cycle;
-      \node at (4,0.7) {\textbf{Agent API}};
-      \node at (2, -0.75) {\textbf{Regions}};
-      % \node at (2, -1.1) {\textbf{API}};
-
-      \node at (4, -0.75) {\textbf{Institutions}};
-      % \node at (4, -1.1) {\textbf{API}};
-
-      \node at (6, -0.75) {\textbf{Facilities}};
-      % \node at (6, -1.1) {\textbf{API}};
-    \end{tikzpicture}
-  \end{center} % \pause
-
-  The \cyclus ecosystem has many \textit{archetypes}, or generic facility models, (like the \cycamore Reactor) that can be used to model different fuel cycle facilities.
-  \end{frame}
-
   \begin{frame}
     \frametitle{What are our options if we cannot get HALEU fuel?}
     \begin{figure}
@@ -227,6 +199,34 @@ $^{\dagger}$Scientific Computing, Reactor Analysis and Modeling Group, Oregon St
       \end{tabular}
    \end{table}
   \end{frame}
+
+  \begin{frame}
+    \frametitle{We use \cyclus to model fuel cycles.}
+    \vspace{10pt}
+    \cyclus is an open-source agent-based fuel cycle code allowing for detailed facility and transaction modeling \cite{huff_fundamental_2016}.
+    % \vspace{10pt}
+    \begin{center}
+    \begin{tikzpicture}
+        % Main rectangle
+        \draw[thick, fill=lightpurple] (0,0) -- (1,1.5) -- (7, 1.5) -- (8,0) -- (8,3) -- (0,3) -- (0,0);
+        \node at (4,2) {\textbf{Cyclus Kernel}};
+
+        % Trapezoid cut-out at the bottom
+        \draw[thick, fill=lightgreen] (0,-0.5) -- (1,1) -- (7,1) -- (8,-0.5) -- (6.75, -0.5) -- (6, 0.4) -- (5.25, -0.5) -- (4.75, -0.5) -- (4.75, 0.4) -- (3.25, 0.4) -- (3.25, -0.5) -- (2.75, -0.5) -- (2.75, 0.0) -- (2, 0.4) -- (1.25, 0.0) -- (1.25, -0.5) -- cycle;
+        \node at (4,0.7) {\textbf{Agent API}};
+        \node at (2, -0.75) {\textbf{Regions}};
+        % \node at (2, -1.1) {\textbf{API}};
+
+        \node at (4, -0.75) {\textbf{Institutions}};
+        % \node at (4, -1.1) {\textbf{API}};
+
+        \node at (6, -0.75) {\textbf{Facilities}};
+        % \node at (6, -1.1) {\textbf{API}};
+      \end{tikzpicture}
+    \end{center} % \pause
+
+    The \cyclus ecosystem has many \textit{archetypes}, or generic facility models, (like the \cycamore Reactor) that can be used to model different fuel cycle facilities.
+    \end{frame}
 
   % \begin{frame}
   %   \frametitle{\cyclus is being used to tackle big questions.}
@@ -425,11 +425,11 @@ $^{\dagger}$Scientific Computing, Reactor Analysis and Modeling Group, Oregon St
   \section{Conclusion}
   \begin{frame}
       \frametitle{This is an upperbound on the amount of HALEU we could defer.}
-      In our simple case, we transition from LEU+ to HALEU after 10 years of operation with no learning curve.
-      \begin{itemize}
-          \item For the Xe100 reactors, we need almost 315 less tons of HALEU.
-          \item For the MMR reactors, we need almost 97 less tons of HALEU.
-      \end{itemize}
+      In our simple case, we transition from LEU+ to HALEU after 10 years of operation with no learning curve. We have discussed how:
+      \begin{enumerate}
+          \item The difference in the total mass of HALEU required for a LEU+ to HALEU transition is on the order of hundreds of tonnes.
+          \item The deployment algorithm impacts the total amount of HALEU required, with the Random and Random + Greedy algorithms requiring more HALEU than the greedy algorithm.
+      \end{enumerate}
   \end{frame}
 
   \begin{frame}
@@ -454,7 +454,7 @@ $^{\dagger}$Scientific Computing, Reactor Analysis and Modeling Group, Oregon St
       Thanks to Luke Seifert for his help with running the neutronics models, and thanks to Amanda Bachmann and Zoe Richter for letting me adapt their reactor models for the MMR and Xe100.
 
       \vspace{7mm}
-      As always, thanks to my advisors Madicken Munk and Katy Huff for their support throughout my studies.
+      Thanks to Madicken Munk and Katy Huff for their support throughout my studies.
   \end{frame}
 
 
