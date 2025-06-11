@@ -383,39 +383,42 @@ $^{\dagger}$Scientific Computing, Reactor Analysis and Modeling Group, Oregon St
   \end{frame}
 
   \begin{frame}
-    \frametitle{The difference is on the order of hundreds of tons}
-    \begin{figure}
-        \centering
-        \includegraphics[width=0.75\textwidth]{../images/diff_scheme.pdf}
-    \end{figure}
-  \end{frame}
-
-  \begin{frame}
-    \frametitle{Across reactor}
-    \begin{figure}
-      \centering
-      \includegraphics[width=0.85\textwidth]{../images/diff_reactor_fuel.pdf}
-    \end{figure}
-  \end{frame}
-
-  \begin{frame}
-    \frametitle{Compare to a scenario without LEUP}
+    \frametitle{The total mass for scenarios with and without LEU+}
+    We have approximated that each reactor's capacity for LEU+ will be the same as their capacity for HALEU.
     \begin{columns}
       \begin{column}{0.5\textwidth}
         \begin{figure}
           \centering
           \includegraphics[width=\textwidth]{../images/final_cumulative_fuel_of.pdf}
-          \caption{No-LEUP scenario.}
+          \caption{No-LEU+ scenario.}
         \end{figure}
       \end{column}
       \begin{column}{0.5\textwidth}
         \begin{figure}
           \centering
           \includegraphics[width=\textwidth]{../images/final_cumulative_fuel_mf.pdf}
-          \caption{LEUP to HALEU scenario.}
+          \caption{LEU+ to HALEU scenario.}
         \end{figure}
       \end{column}
     \end{columns}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Comparing the mass of HALEU for each scenario}
+    In our one-to-one scenario for LEU+- and HALEU-fueled reactors, the LEU+ scenarios require less HALEU on the order of hundreds of tonnes.
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.65\textwidth]{../images/diff_scheme.pdf}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Breaking down the mass of HALEU by reactor}
+    We can separate the differences in HALEU between the LEU+ and non-LEU+ scenarios by reactor for each deployment algorithm to show that the larger differences are for the Xe-100.
+    \begin{figure}
+      \centering
+      \includegraphics[width=0.7\textwidth]{../images/diff_reactor_fuel.pdf}
+    \end{figure}
   \end{frame}
 
 
@@ -427,7 +430,6 @@ $^{\dagger}$Scientific Computing, Reactor Analysis and Modeling Group, Oregon St
           \item For the Xe100 reactors, we need almost 315 less tons of HALEU.
           \item For the MMR reactors, we need almost 97 less tons of HALEU.
       \end{itemize}
-      Next we need to characterize what the cost of this transition would be.
   \end{frame}
 
   \begin{frame}
@@ -436,7 +438,7 @@ $^{\dagger}$Scientific Computing, Reactor Analysis and Modeling Group, Oregon St
     \begin{itemize}
       \item adapting neutronics models of the MMR and Xe-100 to be fueled with LEU+,
       \item investigating the impact of learning curves instead of a ready deployment on the results over time,
-      \item and comparing these results with a triple-by-2050 scenario (also proposed in the Liftoff Report \cite{julie_liftoff_pathways_2024}.)
+      \item and comparing these results with a triple-by-2050 scenario (also proposed in the Liftoff Report \cite{julie_liftoff_pathways_2024}).
     \end{itemize}
   \end{frame}
 
